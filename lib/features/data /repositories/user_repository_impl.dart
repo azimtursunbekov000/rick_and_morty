@@ -7,8 +7,9 @@ import 'package:rick_and_morty/internal/helpers/api_requester.dart';
 import 'package:rick_and_morty/internal/helpers/catch_exception.dart';
 
 class UserRepositoriImpl implements UserRepository {
-  @override
   ApiRequester apiRequester = ApiRequester();
+
+  @override
   Future<UserModel> getAllUsers() async {
     try {
       Response response = await apiRequester.toGet(apiRequester.url);

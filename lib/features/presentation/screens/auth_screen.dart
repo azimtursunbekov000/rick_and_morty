@@ -47,8 +47,8 @@ class _AuthorizationScreenState extends State<AuthorizationScreen> {
                 controller: emailInputController,
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.symmetric(
-                    horizontal: 10,
-                    vertical: 10,
+                    horizontal: 10.w,
+                    vertical: 10.h,
                   ),
                   prefixIcon: Icon(Icons.login),
                   hintText: 'Логин',
@@ -77,13 +77,20 @@ class _AuthorizationScreenState extends State<AuthorizationScreen> {
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10.r),
                   ),
+                  suffixIcon: IconButton(
+                    onPressed: () {},
+                    icon: Icon(Icons.visibility),
+                  ),
                 ),
               ),
               SizedBox(height: 20.h),
               ElevatedButton(
                 style: ButtonStyle(
                   minimumSize: MaterialStateProperty.all(
-                    Size(319.w, 50.h),
+                    Size(
+                      319.w,
+                      50.h,
+                    ),
                   ),
                   backgroundColor: MaterialStatePropertyAll(
                     Color(0xff22A2BD),
