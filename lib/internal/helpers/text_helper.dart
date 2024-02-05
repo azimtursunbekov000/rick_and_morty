@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rick_and_morty/internal/theme_helper.dart';
+import 'package:rick_and_morty/internal/helpers/theme_helper.dart';
 
 abstract class TextHelper {
   static TextStyle w600s12 = TextStyle(

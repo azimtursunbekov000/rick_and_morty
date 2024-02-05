@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rick_and_morty/internal/text_helper.dart';
-import 'package:rick_and_morty/internal/theme_helper.dart';
+import 'package:rick_and_morty/internal/helpers/text_helper.dart';
+import 'package:rick_and_morty/internal/helpers/theme_helper.dart';
 
-class AuthorizationScreen extends StatelessWidget {
+class AuthorizationScreen extends StatefulWidget {
   const AuthorizationScreen({super.key});
+
+  @override
+  State<AuthorizationScreen> createState() => _AuthorizationScreenState();
+}
+
+class _AuthorizationScreenState extends State<AuthorizationScreen> {
+  TextEditingController emailInputController = TextEditingController();
+  TextEditingController passwordInputController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +44,7 @@ class AuthorizationScreen extends StatelessWidget {
               ),
               SizedBox(height: 10.h),
               TextFormField(
+                controller: emailInputController,
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.symmetric(
                     horizontal: 10,
@@ -57,6 +66,7 @@ class AuthorizationScreen extends StatelessWidget {
               ),
               SizedBox(height: 10.h),
               TextFormField(
+                controller: passwordInputController,
                 decoration: InputDecoration(
                   contentPadding:
                       EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
@@ -102,7 +112,7 @@ class AuthorizationScreen extends StatelessWidget {
                     child: Text("Создать"),
                   ),
                 ],
-              )
+              ),
             ],
           ),
         ),

@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
-import 'package:rick_and_morty/internal/catch_exception.dart';
+import 'package:rick_and_morty/internal/helpers/catch_exception.dart';
 
 class ApiRequester {
-  final String url = "https://randomuser.me/api/";
+  final String url = "https://rickandmortyapi.com/";
 
   Future<Dio> initDio() async {
     return Dio(
