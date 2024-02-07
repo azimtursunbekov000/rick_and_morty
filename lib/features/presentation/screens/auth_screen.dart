@@ -52,7 +52,7 @@ class _AuthorizationScreenState extends State<AuthorizationScreen> {
               MaterialPageRoute(builder: (context) => VerifyEmailScreen()));
         } else {
           navigator.pushNamedAndRemoveUntil(
-              '/home', (Route<dynamic> route) => false);
+              '/bottom_nav_bar', (Route<dynamic> route) => false);
         }
       }
     } catch (error) {

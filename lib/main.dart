@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rick_and_morty/features/presentation/screens/account_screen.dart';
 import 'package:rick_and_morty/features/presentation/screens/auth_screen.dart';
+import 'package:rick_and_morty/features/presentation/screens/bottom_nav_bar.dart';
 import 'package:rick_and_morty/features/presentation/screens/home_screen.dart';
 import 'package:rick_and_morty/features/presentation/screens/registration_screen.dart';
 import 'package:rick_and_morty/features/presentation/screens/reset_password_screen.dart';
@@ -49,6 +50,7 @@ class MyApp extends StatelessWidget {
             '/signup': (context) => const RegistrationScreen(),
             '/reset_password': (context) => const ResetPasswordScreen(),
             '/verify_email': (context) => const VerifyEmailScreen(),
+            '/bottom_nav_bar': (context) => const BottomNavBarScreen(),
           },
           initialRoute: '/',
         );
