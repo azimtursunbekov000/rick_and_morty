@@ -22,6 +22,7 @@ class UserRepositoriImpl implements UserRepository {
 
       throw response;
     } catch (e) {
+      // ignore: avoid_print
       print('impl ======= $e');
 
       throw CatchException.convertException(e);
