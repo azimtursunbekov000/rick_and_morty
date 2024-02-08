@@ -1,13 +1,13 @@
-class Characters {
+class CharactersModel {
     final Info? info;
     final List<Result>? results;
 
-    Characters({
+    CharactersModel({
         this.info,
         this.results,
     });
 
-    factory Characters.fromJson(Map<String, dynamic> json) => Characters(
+    factory CharactersModel.fromJson(Map<String, dynamic> json) => CharactersModel(
         info: json["info"] == null ? null : Info.fromJson(json["info"]),
         results: json["results"] == null ? [] : List<Result>.from(json["results"]!.map((x) => Result.fromJson(x))),
     );
