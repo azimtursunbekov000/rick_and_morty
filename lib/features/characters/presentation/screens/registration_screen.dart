@@ -3,7 +3,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rick_and_morty/features/users/presentation/widget/email_input_widget.dart';
+import 'package:rick_and_morty/features/characters/presentation/widget/email_input_widget.dart';
 import 'package:rick_and_morty/internal/helpers/text_helper.dart';
 import 'package:rick_and_morty/internal/services/snack_bar_services.dart';
 

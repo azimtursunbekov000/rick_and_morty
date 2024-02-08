@@ -1,4 +1,5 @@
-import 'package:rick_and_morty/features/users/data%20/models/users_model.dart';
+
+import 'package:rick_and_morty/features/characters/data%20/models/users_model.dart';
 
 abstract class UserRepository {
   ///RU: получение информацию всех пользователей

@@ -1,5 +1,6 @@
-import 'package:rick_and_morty/features/users/data%20/models/users_model.dart';
-import 'package:rick_and_morty/features/users/domain/presentation/user_repository.dart';
+
+import 'package:rick_and_morty/features/characters/data%20/models/users_model.dart';
+import 'package:rick_and_morty/features/characters/domain/presentation/user_repository.dart';
 
 class UserUseCase {
   final UserRepository userRepository;

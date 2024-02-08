@@ -2,8 +2,8 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rick_and_morty/features/users/presentation/screens/verify_email_screen.dart';
-import 'package:rick_and_morty/features/users/presentation/widget/email_input_widget.dart';
+import 'package:rick_and_morty/features/characters/presentation/screens/verify_email_screen.dart';
+import 'package:rick_and_morty/features/characters/presentation/widget/email_input_widget.dart';
 import 'package:rick_and_morty/internal/helpers/catch_exception.dart';
 import 'package:rick_and_morty/internal/helpers/text_helper.dart';
 
@@ -49,7 +49,7 @@ class _AuthorizationScreenState extends State<AuthorizationScreen> {
       if (FirebaseAuth.instance.currentUser != null) {
         if (!FirebaseAuth.instance.currentUser!.emailVerified) {
           navigator.push(
-              MaterialPageRoute(builder: (context) => VerifyEmailScreen()));
+              MaterialPageRoute(builder: (context) => const VerifyEmailScreen()));
         } else {
           navigator.pushNamedAndRemoveUntil(
               '/bottom_nav_bar', (Route<dynamic> route) => false);
@@ -82,7 +82,7 @@ class _AuthorizationScreenState extends State<AuthorizationScreen> {
                 children: [
                   Container(
                     height: 376.h,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       image: DecorationImage(
                         image: AssetImage(
                           "assets/images/Rick_and_Morty.png",
@@ -114,7 +114,7 @@ class _AuthorizationScreenState extends State<AuthorizationScreen> {
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                     decoration: InputDecoration(
                       filled: true,
-                      fillColor: Color(0xffF2F2F2),
+                      fillColor: const Color(0xffF2F2F2),
                       contentPadding: EdgeInsets.symmetric(
                         horizontal: 10.w,
                         vertical: 15.h,
@@ -124,7 +124,7 @@ class _AuthorizationScreenState extends State<AuthorizationScreen> {
                         borderRadius: BorderRadius.circular(12.r),
                       ),
                       hintText: 'Введите пароль',
-                      prefixIcon: Icon(Icons.password),
+                      prefixIcon: const Icon(Icons.password),
                       suffix: InkWell(
                         onTap: togglePasswordView,
                         child: Icon(
@@ -145,7 +145,7 @@ class _AuthorizationScreenState extends State<AuthorizationScreen> {
                           50.h,
                         ),
                       ),
-                      backgroundColor: MaterialStatePropertyAll(
+                      backgroundColor: const MaterialStatePropertyAll(
                         Color(0xff22A2BD),
                       ),
                     ),
@@ -161,7 +161,7 @@ class _AuthorizationScreenState extends State<AuthorizationScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
+                      const Text(
                         "У вас еще нет аккаунта?",
                         style: TextStyle(
                           color: Color(0xff5B6975),
