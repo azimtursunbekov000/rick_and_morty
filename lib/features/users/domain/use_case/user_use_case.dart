@@ -6,7 +6,7 @@ class UserUseCase {
 
   UserUseCase({required this.userRepository});
 
-  Future<UserModel> getAllUsers() async {
-    return await userRepository.getAllUsers();
+  Future<Characters> getAllUsers() async {
+    return await userRepository.getAllCharacters();
   }
 }

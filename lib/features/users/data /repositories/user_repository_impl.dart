@@ -10,14 +10,14 @@ class UserRepositoriImpl implements UserRepository {
   ApiRequester apiRequester = ApiRequester();
 
   @override
-  Future<UserModel> getAllUsers() async {
+  Future<Characters> getAllCharacters() async {
     try {
       Response response = await apiRequester.toGet(apiRequester.url);
 
       log('getAllUsers result == ${response.data}');
 
       if (response.statusCode == 200) {
-        return UserModel.fromJson(response.data);
+        return Characters.fromJson(response.data);
       }
 
       throw response;
