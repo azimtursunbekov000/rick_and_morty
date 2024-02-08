@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously, avoid_print
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -105,7 +107,7 @@ class _SignUpScreen extends State<RegistrationScreen> {
                     : null,
                 decoration: InputDecoration(
                   filled: true,
-                  fillColor: Color(0xffF2F2F2),
+                  fillColor: const Color(0xffF2F2F2),
                   contentPadding: EdgeInsets.symmetric(
                     horizontal: 10.w,
                     vertical: 15.h,
@@ -138,8 +140,8 @@ class _SignUpScreen extends State<RegistrationScreen> {
                     : null,
                 decoration: InputDecoration(
                   filled: true,
-                  fillColor: Color(0xffF2F2F2),
-                  contentPadding: EdgeInsets.symmetric(
+                  fillColor: const Color(0xffF2F2F2),
+                  contentPadding: const EdgeInsets.symmetric(
                     horizontal: 10,
                     vertical: 15,
                   ),
@@ -169,7 +171,7 @@ class _SignUpScreen extends State<RegistrationScreen> {
                       50.h,
                     ),
                   ),
-                  backgroundColor: MaterialStatePropertyAll(
+                  backgroundColor: const MaterialStatePropertyAll(
                     Color(0xff22A2BD),
                   ),
                 ),

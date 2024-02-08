@@ -33,9 +33,9 @@ class RegistrationTextField extends StatelessWidget {
               vertical: 10.h,
             ),
             filled: true,
-            fillColor: Color(0xffF2F2F2),
+            fillColor: const Color(0xffF2F2F2),
             hintText: hintText,
-            hintStyle: TextStyle(fontSize: 13),
+            hintStyle: const TextStyle(fontSize: 13),
             border: OutlineInputBorder(
               borderSide: BorderSide.none,
               borderRadius: BorderRadius.circular(15.r),

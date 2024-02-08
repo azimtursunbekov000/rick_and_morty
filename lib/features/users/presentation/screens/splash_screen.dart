@@ -14,9 +14,9 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    Timer(Duration(seconds: 3), () {
+    Timer(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => SplashScreen2()));
+          context, MaterialPageRoute(builder: (context) => const SplashScreen2()));
     });
 
     super.initState();
@@ -31,7 +31,7 @@ class _SplashScreenState extends State<SplashScreen> {
           Container(
             margin: EdgeInsets.symmetric(vertical: 53.h),
             height: 307.h,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 fit: BoxFit.contain,
                 image: AssetImage('assets/images/Rick_and_Morty.png'),
@@ -40,7 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
           ),
           Container(
             height: 200.h,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage("assets/images/chel.png"),
               ),
@@ -48,7 +48,7 @@ class _SplashScreenState extends State<SplashScreen> {
           ),
           Container(
             height: 199.h,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage("assets/images/proff.png"),
               ),
@@ -70,9 +70,9 @@ class SplashScreen2 extends StatefulWidget {
 class _SplashScreen2State extends State<SplashScreen2> {
   @override
   void initState() {
-    Timer(Duration(seconds: 3), () {
+    Timer(const Duration(seconds: 3), () {
       Navigator.pushReplacement(context,
-          MaterialPageRoute(builder: (context) => AuthorizationScreen()));
+          MaterialPageRoute(builder: (context) => const AuthorizationScreen()));
     });
     super.initState();
   }
@@ -86,7 +86,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
           Container(
             margin: EdgeInsets.symmetric(vertical: 53.h),
             height: 307.h,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 fit: BoxFit.contain,
                 image: AssetImage('assets/images/Rick_and_Morty.png'),
@@ -95,7 +95,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
           ),
           Container(
             height: 327.h,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage("assets/images/professor.png"),
               ),

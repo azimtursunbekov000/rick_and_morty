@@ -22,7 +22,7 @@ class EmailTextFromField extends StatelessWidget {
           : null,
       decoration: InputDecoration(
         filled: true,
-        fillColor: Color(0xffF2F2F2),
+        fillColor: const Color(0xffF2F2F2),
         contentPadding: EdgeInsets.symmetric(
           horizontal: 10.w,
           vertical: 15.h,
@@ -33,7 +33,7 @@ class EmailTextFromField extends StatelessWidget {
         ),
         hintText: 'Введите Email',
         hintStyle: TextHelper.hintText,
-        prefixIcon: Icon(Icons.email),
+        prefixIcon: const Icon(Icons.email),
       ),
     );
   }

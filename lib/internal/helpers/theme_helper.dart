@@ -5,7 +5,7 @@ abstract class ThemeColor {
 
   static Color colorTextWh = Colors.black;
 
-  static Color hintTextCl = Color(0xff5B6975);
+  static Color hintTextCl = const Color(0xff5B6975);
 
   static Color colorBtnText = Colors.white;
 
