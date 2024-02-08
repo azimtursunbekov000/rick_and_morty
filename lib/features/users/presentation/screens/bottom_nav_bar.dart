@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:rick_and_morty/features/presentation/screens/characters_screen.dart';
-import 'package:rick_and_morty/features/presentation/screens/episodes_screen.dart';
-import 'package:rick_and_morty/features/presentation/screens/location_screen.dart';
-import 'package:rick_and_morty/features/presentation/screens/settings_screen.dart';
+import 'package:rick_and_morty/features/users/presentation/screens/characters_screen.dart';
+import 'package:rick_and_morty/features/users/presentation/screens/episodes_screen.dart';
+import 'package:rick_and_morty/features/users/presentation/screens/location_screen.dart';
+import 'package:rick_and_morty/features/users/presentation/screens/settings_screen.dart';
 
 class BottomNavBarScreen extends StatefulWidget {
   const BottomNavBarScreen({super.key});

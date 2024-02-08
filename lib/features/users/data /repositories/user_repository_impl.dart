@@ -1,8 +1,8 @@
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
-import 'package:rick_and_morty/features/data%20/models/users_model.dart';
-import 'package:rick_and_morty/features/domain/presentation/user_repository.dart';
+import 'package:rick_and_morty/features/users/data%20/models/users_model.dart';
+import 'package:rick_and_morty/features/users/domain/presentation/user_repository.dart';
 import 'package:rick_and_morty/internal/helpers/api_requester.dart';
 import 'package:rick_and_morty/internal/helpers/catch_exception.dart';
 

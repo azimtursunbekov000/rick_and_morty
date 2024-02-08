@@ -2,8 +2,8 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rick_and_morty/features/presentation/screens/verify_email_screen.dart';
-import 'package:rick_and_morty/features/presentation/widget/email_input_widget.dart';
+import 'package:rick_and_morty/features/users/presentation/screens/verify_email_screen.dart';
+import 'package:rick_and_morty/features/users/presentation/widget/email_input_widget.dart';
 import 'package:rick_and_morty/internal/helpers/catch_exception.dart';
 import 'package:rick_and_morty/internal/helpers/text_helper.dart';
 
@@ -186,93 +186,5 @@ class _AuthorizationScreenState extends State<AuthorizationScreen> {
         ),
       ),
     );
-    // return Scaffold(
-    //   resizeToAvoidBottomInset: false,
-    //   backgroundColor: ThemeColor.backgroundColor,
-    //   appBar: AppBar(
-    //     backgroundColor: ThemeColor.backgroundColor,
-    //   ),
-    //   body: Center(
-    //     child: Padding(
-    //       padding: EdgeInsets.symmetric(horizontal: 30),
-    //       child: Column(
-    //         crossAxisAlignment: CrossAxisAlignment.start,
-    //         children: [
-    //           Container(
-    //             height: 376,
-    //             decoration: BoxDecoration(
-    //               image: DecorationImage(
-    //                 image: AssetImage(
-    //                   "assets/images/Rick_and_Morty.png",
-    //                 ),
-    //               ),
-    //             ),
-    //           ),
-    //           SizedBox(height: 20),
-    //           CustomTextFormField(
-    //             label: 'Логин',
-    //             controller: emailTextInputController,
-    //             hintText: 'Логин',
-    //             prefixIcon: Icons.login,
-    //             obscureText: isHiddenPassword,
-    //             validator: (String? value) {
-    //               if (value == null ||
-    //                   value.isEmpty ||
-    //                   !EmailValidator.validate(value)) {
-    //                 return 'Пожалуйста, введите действительный адрес электронной почты';
-    //               }
-    //               return null;
-    //             },
-    //           ),
-    //           SizedBox(height: 10),
-    //           CustomTextFormField(
-    //             label: "Пароль",
-    //             controller: passwordTextInputController,
-    //             hintText: 'Пароль',
-    //             prefixIcon: Icons.lock,
-    //             suffixIcon:
-    //                 isHiddenPassword ? Icons.visibility_off : Icons.visibility,
-    //             obscureText: isHiddenPassword,
-    //             togglePasswordView: togglePasswordView,
-    //             validator: (String? value) {
-    //               if (value != null && value.length <= 6) {}
-    //               return null;
-    //             },
-    //           ),
-    //           SizedBox(height: 20),
-    //           CustomElevatedButton(
-    //             onPressed: login,
-    //             label: "Войти",
-    //           ),
-    //           Row(
-    //             mainAxisAlignment: MainAxisAlignment.center,
-    //             children: [
-    //               Text(
-    //                 "У вас еще нет аккаунта?",
-    //                 style: TextHelper.w600s14,
-    //               ),
-    //               TextButton(
-    //                 style: ButtonStyle(
-    //                   foregroundColor: MaterialStatePropertyAll(
-    //                     Color(0xff43D049),
-    //                   ),
-    //                 ),
-    //                 onPressed: () {
-    //                   Navigator.push(
-    //                     context,
-    //                     MaterialPageRoute(
-    //                       builder: (context) => RegistrationScreen(),
-    //                     ),
-    //                   );
-    //                 },
-    //                 child: Text("Создать"),
-    //               ),
-    //             ],
-    //           ),
-    //         ],
-    //       ),
-    //     ),
-    //   ),
-    // );
   }
 }
