@@ -1,7 +1,9 @@
+// ignore_for_file: avoid_print
+
 import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:rick_and_morty/features/presentation/screens/home_screen.dart';
+import 'package:rick_and_morty/features/presentation/screens/bottom_nav_bar.dart';
 import 'package:rick_and_morty/internal/helpers/catch_exception.dart';
 
 class VerifyEmailScreen extends StatefulWidget {
@@ -75,7 +77,7 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
 
   @override
   Widget build(BuildContext context) => isEmailVerified
-      ? const HomeScreen()
+      ? const BottomNavBarScreen()
       : Scaffold(
           resizeToAvoidBottomInset: false,
           appBar: AppBar(

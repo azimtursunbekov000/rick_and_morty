@@ -22,7 +22,7 @@ class CustomElevatedButton extends StatelessWidget {
             50.h,
           ),
         ),
-        backgroundColor: MaterialStatePropertyAll(
+        backgroundColor: const MaterialStatePropertyAll(
           Color(0xff22A2BD),
         ),
       ),

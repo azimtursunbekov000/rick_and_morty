@@ -7,6 +7,7 @@ import 'package:rick_and_morty/features/presentation/screens/bottom_nav_bar.dart
 import 'package:rick_and_morty/features/presentation/screens/home_screen.dart';
 import 'package:rick_and_morty/features/presentation/screens/registration_screen.dart';
 import 'package:rick_and_morty/features/presentation/screens/reset_password_screen.dart';
+import 'package:rick_and_morty/features/presentation/screens/splash_screen.dart';
 import 'package:rick_and_morty/features/presentation/screens/verify_email_screen.dart';
 import 'package:rick_and_morty/firebase_options.dart';
 import 'package:rick_and_morty/internal/services/firebase_streem.dart';
@@ -16,7 +17,8 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(MyApp());
+
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -32,6 +34,9 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
+            // elevatedButtonTheme: ElevatedButtonThemeData(
+            //   style: ButtonStyle(backgroundColor: Color(0xff)),
+            // ),
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             useMaterial3: true,
 
@@ -51,8 +56,9 @@ class MyApp extends StatelessWidget {
             '/reset_password': (context) => const ResetPasswordScreen(),
             '/verify_email': (context) => const VerifyEmailScreen(),
             '/bottom_nav_bar': (context) => const BottomNavBarScreen(),
+            '/splash': (context) => const SplashScreen(),
           },
-          initialRoute: '/',
+          initialRoute: '/splash',
         );
       },
     );

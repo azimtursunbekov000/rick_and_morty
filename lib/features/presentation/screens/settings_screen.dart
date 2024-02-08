@@ -9,6 +9,13 @@ class SettingsScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text("SettingsScreen"),
       ),
+      body: Center(
+        child: ElevatedButton(
+            onPressed: () {
+              Navigator.of(context).pushNamed('/login');
+            },
+            child: Text("data")),
+      ),
     );
   }
 }

@@ -75,18 +75,18 @@ class _SignUpScreen extends State<RegistrationScreen> {
       }
     }
 
-    navigator.pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
+    navigator.pushNamedAndRemoveUntil(
+        '/bottom_nav_bar', (Route<dynamic> route) => false);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: const Text('Зарегистрироваться'),
       ),
       body: Padding(
-        padding: EdgeInsets.all(30.0.r),
+        padding: EdgeInsets.all(30.r),
         child: Form(
           key: formKey,
           child: Column(
