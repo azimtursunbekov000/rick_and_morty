@@ -1,137 +1,121 @@
 class CharactersModel {
-  // final String info;
-  final Info2? info;
-  // final Info? info;
-  // final List<Result>? results;
+  final Info? info;
+  final List<Result>? results;
 
-  // CharactersModel({
-  //   // this.info,
-  //   // this.results,
-  // });
-  // CharactersModel();
-  CharactersModel({this.info});
-
-  // factory CharactersModel.fromJson(Map<String, dynamic> json) =>
-  factory CharactersModel.fromJson(dynamic json) => CharactersModel(
-        // "my-data",
-        info: null, //Info2.fromJson(json["info"]),
-        // info: json["info"] == null ? null : Info.fromJson(json["info"]),
-        // results: json["results"] == null
-        //     ? []
-        //     : List<Result>.from(
-        //         json["results"]!.map((x) => Result.fromJson(x))),
-      );
-
-  // Map<String, dynamic> toJson() => {
-  //   "info": info?.toJson(),
-  //   "results": results == null
-  //       ? []
-  //       : List<dynamic>.from(results!.map((x) => x.toJson())),
-  // };
-}
-
-class Info2 {
-  final int? count;
-  Info2({
-    this.count,
+  CharactersModel({
+    this.info,
+    this.results,
   });
-  factory Info2.fromJson(Map<String, dynamic> json) => Info2(
-        count: json["count"],
+
+  factory CharactersModel.fromJson(Map<String, dynamic> json) =>
+      CharactersModel(
+        info: json["info"] == null ? null : Info.fromJson(json["info"]),
+        results: json["results"] == null
+            ? []
+            : List<Result>.from(
+                json["results"]!.map((x) => Result.fromJson(x))),
       );
+
+  Map<String, dynamic> toJson() => {
+        "info": info?.toJson(),
+        "results": results == null
+            ? []
+            : List<dynamic>.from(results!.map((x) => x.toJson())),
+      };
 }
 
 class Info {
   final int? count;
-  // final int? pages;
-  // final String? next;
-  // final dynamic prev;
+  final int? pages;
+  final String? next;
+  final dynamic prev;
 
   Info({
     this.count,
-    // this.pages,
-    // this.next,
-    // this.prev,
+    this.pages,
+    this.next,
+    this.prev,
   });
 
   factory Info.fromJson(Map<String, dynamic> json) => Info(
         count: json["count"],
-        // pages: json["pages"],
-        // next: json["next"],
-        // prev: json["prev"],
+        pages: json["pages"],
+        next: json["next"],
+        prev: json["prev"],
       );
 
   Map<String, dynamic> toJson() => {
         "count": count,
-        // "pages": pages,
-        // "next": next,
-        // "prev": prev,
+        "pages": pages,
+        "next": next,
+        "prev": prev,
       };
 }
 
 class Result {
   final int? id;
-  // final String? name;
-  // final Status? status;
-  // final Species? species;
-  // final String? type;
-  // final Gender? gender;
-  // final Location? origin;
-  // final Location? location;
-  // final String? image;
-  // final List<String>? episode;
-  // final String? url;
-  // final DateTime? created;
+  final String? name;
+  final Status? status;
+  final Species? species;
+  final String? type;
+  final Gender? gender;
+  final Location? origin;
+  final Location? location;
+  final String? image;
+  final List<String>? episode;
+  final String? url;
+  final DateTime? created;
 
   Result({
     this.id,
-    // this.name,
-    // this.status,
-    // this.species,
-    // this.type,
-    // this.gender,
-    // this.origin,
-    // this.location,
-    // this.image,
-    // this.episode,
-    // this.url,
-    // this.created,
+    this.name,
+    this.status,
+    this.species,
+    this.type,
+    this.gender,
+    this.origin,
+    this.location,
+    this.image,
+    this.episode,
+    this.url,
+    this.created,
   });
 
   factory Result.fromJson(Map<String, dynamic> json) => Result(
         id: json["id"],
-        // name: json["name"],
-        // status: statusValues.map[json["status"]]!,
-        // species: speciesValues.map[json["species"]]!,
-        // type: json["type"],
-        // gender: genderValues.map[json["gender"]]!,
-        // origin:
-        //     json["origin"] == null ? null : Location.fromJson(json["origin"]),
-        // location: json["location"] == null
-        //     ? null
-        //     : Location.fromJson(json["location"]),
-        // image: json["image"],
-        // episode: json["episode"] == null
-        //     ? []
-        //     : List<String>.from(json["episode"]!.map((x) => x)),
-        // url: json["url"],
-        // created:
-        //     json["created"] == null ? null : DateTime.parse(json["created"]),
+        name: json["name"],
+        status: statusValues.map[json["status"]]!,
+        species: speciesValues.map[json["species"]]!,
+        type: json["type"],
+        gender: genderValues.map[json["gender"]]!,
+        origin:
+            json["origin"] == null ? null : Location.fromJson(json["origin"]),
+        location: json["location"] == null
+            ? null
+            : Location.fromJson(json["location"]),
+        image: json["image"],
+        episode: json["episode"] == null
+            ? []
+            : List<String>.from(json["episode"]!.map((x) => x)),
+        url: json["url"],
+        created:
+            json["created"] == null ? null : DateTime.parse(json["created"]),
       );
 
   Map<String, dynamic> toJson() => {
         "id": id,
-        // "name": name,
-        // "status": statusValues.reverse[status],
-        // "species": speciesValues.reverse[species],
-        // "type": type,
-        // "gender": genderValues.reverse[gender],
-        // "origin": origin?.toJson(),
-        // "location": location?.toJson(),
-        // "image": image,
-        // "episode":
-        //     episode == null ? [] : List<dynamic>.from(episode!.map((x) => x)),
-        // "url": url,
-        // "created": created?.toIso8601String(),
+        "name": name,
+        "status": statusValues.reverse[status],
+        "species": speciesValues.reverse[species],
+        "type": type,
+        "gender": genderValues.reverse[gender],
+        "origin": origin?.toJson(),
+        "location": location?.toJson(),
+        "image": image,
+        "episode":
+            episode == null ? [] : List<dynamic>.from(episode!.map((x) => x)),
+        "url": url,
+        "created": created?.toIso8601String(),
       };
 }
 

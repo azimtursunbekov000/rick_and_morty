@@ -4,7 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
-import 'package:rick_and_morty/features/characters/data%20/models/users_model.dart';
+import 'package:rick_and_morty/features/characters/data/models/users_model.dart';
 import 'package:rick_and_morty/features/characters/domain/use_case/user_use_case.dart';
 import 'package:rick_and_morty/internal/helpers/catch_exception.dart';
 

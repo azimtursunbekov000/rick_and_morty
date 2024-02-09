@@ -11,6 +11,7 @@ import 'package:rick_and_morty/features/characters/presentation/screens/splash_s
 import 'package:rick_and_morty/features/characters/presentation/screens/verify_email_screen.dart';
 
 import 'package:rick_and_morty/firebase_options.dart';
+import 'package:rick_and_morty/internal/dependensies/get_it.dart';
 import 'package:rick_and_morty/internal/services/firebase_streem.dart';
 
 void main() async {
@@ -18,6 +19,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  configureDependencies();
 
   runApp(const MyApp());
 }

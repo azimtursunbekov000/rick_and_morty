@@ -11,7 +11,7 @@
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
-import '../../features/characters/data%20/repositories/user_repository_impl.dart'
+import '../../features/characters/data/repositories/user_repository_impl.dart'
     as _i4;
 import '../../features/characters/domain/presentation/user_repository.dart'
     as _i3;
