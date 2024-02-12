@@ -6,5 +6,5 @@ abstract class UserRepository {
   ///
   ///EN:getting the information of all users
 
-  Future<List<CharactersModel>> getAllCharacters();
+  Future<CharactersResult> getAllCharacters();
 }

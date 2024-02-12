@@ -8,7 +8,7 @@ class UserUseCase {
 
   UserUseCase({required this.userRepository});
 
-  Future<List<CharactersModel>> getAllCharacters() async {
+  Future<CharactersResult> getAllCharacters() async {
     return await userRepository.getAllCharacters();
   }
 }

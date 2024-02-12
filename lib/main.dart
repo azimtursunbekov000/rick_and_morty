@@ -1,14 +1,15 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rick_and_morty/features/characters/presentation/screens/account_screen.dart';
-import 'package:rick_and_morty/features/characters/presentation/screens/auth_screen.dart';
+import 'package:rick_and_morty/features/settings/presentation/screens/account_screen.dart';
+import 'package:rick_and_morty/features/authorization/presentation/screens/auth_screen.dart';
 import 'package:rick_and_morty/features/characters/presentation/screens/bottom_nav_bar.dart';
 import 'package:rick_and_morty/features/characters/presentation/screens/home_screen.dart';
-import 'package:rick_and_morty/features/characters/presentation/screens/registration_screen.dart';
-import 'package:rick_and_morty/features/characters/presentation/screens/reset_password_screen.dart';
+import 'package:rick_and_morty/features/authorization/presentation/screens/registration_screen.dart';
+import 'package:rick_and_morty/features/authorization/presentation/screens/reset_password_screen.dart';
+import 'package:rick_and_morty/features/settings/presentation/screens/settings_screen.dart';
 import 'package:rick_and_morty/features/characters/presentation/screens/splash_screen.dart';
-import 'package:rick_and_morty/features/characters/presentation/screens/verify_email_screen.dart';
+import 'package:rick_and_morty/features/authorization/presentation/screens/verify_email_screen.dart';
 
 import 'package:rick_and_morty/firebase_options.dart';
 import 'package:rick_and_morty/internal/dependensies/get_it.dart';
@@ -60,6 +61,7 @@ class MyApp extends StatelessWidget {
             '/verify_email': (context) => const VerifyEmailScreen(),
             '/bottom_nav_bar': (context) => const BottomNavBarScreen(),
             '/splash': (context) => const SplashScreen(),
+            '/settings': (context) => const SettingsScreen(),
           },
           initialRoute: '/splash',
         );

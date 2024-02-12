@@ -8,9 +8,9 @@ final class CharactersInitialState extends CharactersState {}
 class CharactersLoadingState extends CharactersState {}
 
 class CharactersLoadedState extends CharactersState {
-  final List<CharactersModel> charactersModelList;
+  final CharactersResult charactersResult;
 
-  CharactersLoadedState({required this.charactersModelList});
+  CharactersLoadedState({required this.charactersResult});
 }
 
 class CharactersErrorState extends CharactersState {

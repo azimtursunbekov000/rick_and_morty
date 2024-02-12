@@ -1,8 +1,10 @@
 import 'dart:async';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rick_and_morty/features/characters/presentation/screens/auth_screen.dart';
+import 'package:rick_and_morty/features/authorization/presentation/screens/auth_screen.dart';
+import 'package:rick_and_morty/features/characters/presentation/screens/bottom_nav_bar.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -15,8 +17,8 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     Timer(const Duration(seconds: 3), () {
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => const SplashScreen2()));
+      Navigator.pushReplacement(context,
+          MaterialPageRoute(builder: (context) => const SplashScreen2()));
     });
 
     super.initState();
@@ -70,9 +72,19 @@ class SplashScreen2 extends StatefulWidget {
 class _SplashScreen2State extends State<SplashScreen2> {
   @override
   void initState() {
+    final user = FirebaseAuth.instance.currentUser;
     Timer(const Duration(seconds: 3), () {
-      Navigator.pushReplacement(context,
-          MaterialPageRoute(builder: (context) => const AuthorizationScreen()));
+      if (user != null) {
+        Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+                builder: (context) => const BottomNavBarScreen()));
+      } else {
+        Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+                builder: (context) => const AuthorizationScreen()));
+      }
     });
     super.initState();
   }

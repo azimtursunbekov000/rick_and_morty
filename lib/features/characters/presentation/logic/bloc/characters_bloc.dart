@@ -18,9 +18,9 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
       try {
         emit(CharactersLoadingState());
 
-        List<CharactersModel> result = await userUseCase.getAllCharacters();
+        CharactersResult charactersModelList = await userUseCase.getAllCharacters();
 
-        emit(CharactersLoadedState(charactersModelList: result));
+        emit(CharactersLoadedState(charactersResult: charactersModelList));
       } catch (e) {
         print('ошибка $e');
         emit(

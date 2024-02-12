@@ -12,4 +12,6 @@ abstract class ThemeColor {
   static Color backgroundColor = Colors.white;
 
   static Color buttonColor = Colors.blue;
+
+  static Color discription = const Color(0xff828282);
 }

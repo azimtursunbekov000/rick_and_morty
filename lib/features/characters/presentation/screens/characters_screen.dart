@@ -1,7 +1,13 @@
+// ignore_for_file: avoid_unnecessary_containers
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rick_and_morty/features/characters/presentation/logic/bloc/characters_bloc.dart';
+import 'package:rick_and_morty/features/characters/presentation/widget/list_view_sp_widget.dart';
 import 'package:rick_and_morty/internal/dependensies/get_it.dart';
+import 'package:rick_and_morty/internal/helpers/catch_exception.dart';
+import 'package:rick_and_morty/internal/helpers/text_helper.dart';
 
 class CharactersScreen extends StatefulWidget {
   const CharactersScreen({super.key});
@@ -22,45 +28,55 @@ class _CharactersScreenState extends State<CharactersScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          // leading: TextFormField(),
-          ),
-      body: Center(
-        child: BlocConsumer<CharactersBloc, CharactersState>(
-          bloc: charactersBloc,
-          listener: (context, state) {},
-          builder: (context, state) {
-            if (state is Characters) {
-              return CircularProgressIndicator();
-            }
+      appBar: AppBar(),
+      body: Padding(
+        padding: EdgeInsets.symmetric(
+          vertical: 24.h,
+          horizontal: 15.w,
+        ),
+        child: Center(
+          child: BlocConsumer<CharactersBloc, CharactersState>(
+            bloc: charactersBloc,
+            listener: (context, state) {
+              if (state is CharactersErrorState) {
+                final catchException =
+                    CatchException.convertException(state.error);
 
-            if (state is CharactersLoadedState) {
-              return ListView.separated(
-                itemCount: state.charactersModelList.length,
-                itemBuilder: (context, index) {
-                  return InkWell(
-                    onTap: () {
-                      Navigator.of(context).pushNamed('/settings');
-                    },
-                    child: Container(
-                      color: Colors.red,
-                      child: Column(
-                        children: [
-                          // Text(state
-                          //     .charactersModelList[index].results![index].id
-                          //     .toString()),
-                        ],
-                      ),
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content:
+                        Text(catchException.message ?? "Что-то пошло не так"),
+                  ),
+                );
+              }
+            },
+            builder: (context, state) {
+              if (state is Characters) {
+                return const CircularProgressIndicator();
+              }
+
+              if (state is CharactersLoadedState) {
+                return ListView(
+                  children: [
+                    Row(
+                      children: [
+                        Text(
+                          "Всего персонажей: ${state.charactersResult.info?.count.toString()}",
+                          style: TextHelper.discriptionw400s12,
+                        ),
+                      ],
                     ),
-                  );
-                },
-                separatorBuilder: (context, index) {
-                  return SizedBox(height: 10);
-                },
-              );
-            }
-            return SizedBox();
-          },
+                    SizedBox(height: 24.h),
+                    SizedBox(
+                      height: 590.h,
+                      child: ListViewSeparatedContent(state: state),
+                    ),
+                  ],
+                );
+              }
+              return SizedBox();
+            },
+          ),
         ),
       ),
     );

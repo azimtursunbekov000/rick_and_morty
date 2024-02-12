@@ -15,23 +15,15 @@ class UserRepositoriImpl implements UserRepository {
   ApiRequester apiRequester = ApiRequester();
 
   @override
-  Future<List<CharactersModel>> getAllCharacters() async {
+  Future<CharactersResult> getAllCharacters() async {
     try {
       Response response = await apiRequester.toGet('api/character');
       // var dd ='{"info": { "count": 826,"pages": 42,"next": "https://rickandmortyapi.com/api/character?page=2","prev": null}}';
-      var dd = '{"info": {"count": 826}}';
-      // log('getAllUsers result == ${response.data}');
+      // var dd = '{"info": {"count": 826}}';
+      log('getAllUsers result == ${response.data}');
 
       if (response.statusCode == 200) {
-        // Map<String, dynamic> s = json.decode(dd);
-        // var s = json.decode(dd);
-        var s = jsonDecode(dd);
-        return s
-            .map<CharactersModel>((g) => CharactersModel.fromJson(g));
-            //.toList();
-        // return response.data
-        //     .map<CharactersModel>((g) => CharactersModel.fromJson(g))
-        //     .toList();
+        return CharactersResult.fromJson(response.data);
       }
 
       throw response;
