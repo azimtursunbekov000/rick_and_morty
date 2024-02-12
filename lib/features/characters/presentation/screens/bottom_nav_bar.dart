@@ -36,7 +36,7 @@ class _BottomNavBarState extends State<BottomNavBarScreen> {
       body: screens.elementAt(selectedIndex),
       bottomNavigationBar: BottomNavigationBar(
         // fixedColor: Colors.red,
-        type: BottomNavigationBarType.shifting,
+        type: BottomNavigationBarType.fixed,
         showUnselectedLabels: true,
         // backgroundColor: Colors.blue,
         // iconSize: 24,

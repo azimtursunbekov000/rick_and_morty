@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rick_and_morty/features/characters/presentation/logic/bloc/characters_bloc.dart';
 import 'package:rick_and_morty/features/characters/presentation/widget/list_view_sp_widget.dart';
+import 'package:rick_and_morty/features/characters/presentation/widget/search_widget.dart';
 import 'package:rick_and_morty/internal/dependensies/get_it.dart';
 import 'package:rick_and_morty/internal/helpers/catch_exception.dart';
 import 'package:rick_and_morty/internal/helpers/text_helper.dart';
@@ -21,14 +22,13 @@ class _CharactersScreenState extends State<CharactersScreen> {
 
   @override
   void initState() {
-    charactersBloc.add(GetAllCharacters());
+    charactersBloc.add(GetAllCharactersEvent());
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
       body: Padding(
         padding: EdgeInsets.symmetric(
           vertical: 24.h,
@@ -58,6 +58,12 @@ class _CharactersScreenState extends State<CharactersScreen> {
               if (state is CharactersLoadedState) {
                 return ListView(
                   children: [
+                    const Column(
+                      children: [
+                        SearchWidget(),
+                      ],
+                    ),
+                    SizedBox(height: 10.h),
                     Row(
                       children: [
                         Text(
@@ -74,7 +80,7 @@ class _CharactersScreenState extends State<CharactersScreen> {
                   ],
                 );
               }
-              return SizedBox();
+              return const SizedBox();
             },
           ),
         ),

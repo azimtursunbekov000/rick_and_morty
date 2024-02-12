@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'dart:convert';
 import 'dart:developer';
 import 'dart:ffi';
@@ -20,7 +22,7 @@ class UserRepositoriImpl implements UserRepository {
       Response response = await apiRequester.toGet('api/character');
       // var dd ='{"info": { "count": 826,"pages": 42,"next": "https://rickandmortyapi.com/api/character?page=2","prev": null}}';
       // var dd = '{"info": {"count": 826}}';
-      log('getAllUsers result == ${response.data}');
+      log('getAllCharacters result == ${response.data}');
 
       if (response.statusCode == 200) {
         return CharactersResult.fromJson(response.data);
@@ -28,7 +30,6 @@ class UserRepositoriImpl implements UserRepository {
 
       throw response;
     } catch (e) {
-      // ignore: avoid_print
       print('impl ======= $e');
 
       throw CatchException.convertException(e);

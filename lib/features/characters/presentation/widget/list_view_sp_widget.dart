@@ -22,7 +22,11 @@ class ListViewSeparatedContent extends StatelessWidget {
       itemBuilder: (context, index) {
         return InkWell(
           onTap: () {
-            Navigator.of(context).pushNamed('/settings');
+            Navigator.pushNamed(
+              context,
+              '/characterDetail',
+              arguments: state.charactersResult.results?[index],
+            );
           },
           child: Container(
             child: Column(

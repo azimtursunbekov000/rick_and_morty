@@ -11,4 +11,6 @@ class UserUseCase {
   Future<CharactersResult> getAllCharacters() async {
     return await userRepository.getAllCharacters();
   }
+
+  
 }

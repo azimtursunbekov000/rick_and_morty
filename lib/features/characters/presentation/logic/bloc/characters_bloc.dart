@@ -10,24 +10,22 @@ import 'package:rick_and_morty/internal/helpers/catch_exception.dart';
 
 part 'characters_event.dart';
 part 'characters_state.dart';
+
 @injectable
 class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
   final UserUseCase userUseCase;
   CharactersBloc(this.userUseCase) : super(CharactersInitialState()) {
-    on<GetAllCharacters>((event, emit) async {
+    on<GetAllCharactersEvent>((event, emit) async {
       try {
         emit(CharactersLoadingState());
 
-        CharactersResult charactersModelList = await userUseCase.getAllCharacters();
+        CharactersResult charactersModelList =
+            await userUseCase.getAllCharacters();
 
         emit(CharactersLoadedState(charactersResult: charactersModelList));
       } catch (e) {
         print('ошибка $e');
-        emit(
-          CharactersErrorState(
-            error: CatchException.convertException(e),
-          ),
-        );
+        emit(CharactersErrorState(error: CatchException.convertException(e)));
       }
     });
   }
