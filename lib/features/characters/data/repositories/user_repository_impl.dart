@@ -1,9 +1,6 @@
 // ignore_for_file: avoid_print
 
-import 'dart:convert';
 import 'dart:developer';
-import 'dart:ffi';
-
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:rick_and_morty/features/characters/data/models/users_model.dart';

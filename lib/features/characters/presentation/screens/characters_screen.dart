@@ -65,10 +65,17 @@ class _CharactersScreenState extends State<CharactersScreen> {
                     ),
                     SizedBox(height: 10.h),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
                           "Всего персонажей: ${state.charactersResult.info?.count.toString()}",
                           style: TextHelper.discriptionw400s12,
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            
+                          },
+                          icon: Icon(Icons.menu_open),
                         ),
                       ],
                     ),

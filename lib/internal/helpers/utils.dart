@@ -59,7 +59,7 @@ String genderConverter(Gender? gender) {
       return 'Женский';
 
     case Gender.MALE:
-      return 'Мужчина';
+      return 'Мужcкой';
 
     default:
       return 'Неизвестно';
