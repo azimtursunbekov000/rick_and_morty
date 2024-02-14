@@ -10,9 +10,16 @@ part 'location_state.dart';
 class LocationBloc extends Bloc<LocationEvent, LocationState> {
   final LocationUseCase locationUseCase;
   LocationBloc(this.locationUseCase) : super(LocationInitialState()) {
-    on<GetAllLocations>((event, emit) {
+    on<GetAllLocations>((event, emit) async {
+      try {
+        emit(LocationsLoadingState());
 
-      
+        LocationResult locationResult = await locationUseCase.getAllLocations();
+        emit(LocationsLoadedState(locationResult: locationResult));
+      } catch (e) {
+        print('error bloc $e');
+        emit(LocationsErrorState(error: CatchException.convertException(e)));
+      }
     });
   }
 }
