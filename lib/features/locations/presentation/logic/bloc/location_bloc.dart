@@ -7,19 +7,20 @@ import 'package:rick_and_morty/internal/helpers/catch_exception.dart';
 
 part 'location_event.dart';
 part 'location_state.dart';
+
 @injectable
 class LocationBloc extends Bloc<LocationEvent, LocationState> {
   final LocationUseCase locationUseCase;
-  LocationBloc(this.locationUseCase) : super(LocationInitialState()) {
+  LocationBloc(this.locationUseCase) : super(LocationsInitialState()) {
     on<GetAllLocations>((event, emit) async {
       try {
-        emit(LocationsLoadingState());
+        emit(LocationLoadingState());
 
         LocationResult locationResult = await locationUseCase.getAllLocations();
-        emit(LocationsLoadedState(locationResult: locationResult));
+        emit(LocationLoadedState(locationResult: locationResult));
       } catch (e) {
         print('error bloc $e');
-        emit(LocationsErrorState(error: CatchException.convertException(e)));
+        emit(LocationErrorState(error: CatchException.convertException(e)));
       }
     });
   }

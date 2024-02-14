@@ -23,7 +23,7 @@ class _BottomNavBarState extends State<BottomNavBarScreen> {
     //персонажи
     CharactersScreen(),
     //локация
-    LocationScreen(),
+    LocationsScreen(),
     //Эпизоды
     EpisodesScreen(),
     //настройки

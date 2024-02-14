@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rick_and_morty/features/characters/presentation/logic/bloc/characters_bloc.dart';
+import 'package:rick_and_morty/features/characters/presentation/widget/grid_view_builder_widget.dart';
 import 'package:rick_and_morty/features/characters/presentation/widget/list_view_sp_widget.dart';
 import 'package:rick_and_morty/features/characters/presentation/widget/search_widget.dart';
 import 'package:rick_and_morty/internal/dependensies/get_it.dart';
@@ -24,7 +25,7 @@ class _CharactersScreenState extends State<CharactersScreen> {
     super.initState();
   }
 
-  bool isGridView = true;
+  bool isGridView = false;
 
   @override
   Widget build(BuildContext context) {
@@ -71,10 +72,12 @@ class _CharactersScreenState extends State<CharactersScreen> {
                             ),
                             IconButton(
                               icon: Icon(
-                                isGridView ? Icons.grid_view : Icons.list,
+                                !isGridView ? Icons.grid_view : Icons.list,
                               ),
                               onPressed: () {
-                                setState(() {});
+                                setState(() {
+                                  isGridView = !isGridView;
+                                });
                               },
                             ),
                           ],
@@ -84,7 +87,9 @@ class _CharactersScreenState extends State<CharactersScreen> {
                     SizedBox(height: 24.h),
                     SizedBox(
                       height: 590.h,
-                      child: ListViewSeparatedContent(state: state),
+                      child: isGridView
+                          ? GridViewBuilderContent(state: state)
+                          : ListViewSeparatedContent(state: state),
                     ),
                   ],
                 );

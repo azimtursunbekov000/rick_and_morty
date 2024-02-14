@@ -3,18 +3,18 @@ part of 'location_bloc.dart';
 @immutable
 sealed class LocationState {}
 
-final class LocationInitialState extends LocationState {}
+final class LocationsInitialState extends LocationState {}
 
-class LocationsLoadingState extends LocationState {}
+class LocationLoadingState extends LocationState {}
 
-class LocationsLoadedState extends LocationState {
+class LocationLoadedState extends LocationState {
   final LocationResult locationResult;
 
-  LocationsLoadedState({required this.locationResult});
+  LocationLoadedState({required this.locationResult});
 }
 
-class LocationsErrorState extends LocationState {
+class LocationErrorState extends LocationState {
   final CatchException error;
 
-  LocationsErrorState({required this.error});
+  LocationErrorState({required this.error});
 }

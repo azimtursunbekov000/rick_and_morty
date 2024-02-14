@@ -5,10 +5,10 @@ import 'package:rick_and_morty/features/characters/data/models/users_model.dart'
 import 'package:rick_and_morty/features/characters/presentation/screens/character_detail_screen.dart';
 import 'package:rick_and_morty/features/settings/presentation/screens/account_screen.dart';
 import 'package:rick_and_morty/features/authorization/presentation/screens/auth_screen.dart';
-import 'package:rick_and_morty/features/characters/presentation/screens/bottom_nav_bar.dart';
+import 'package:rick_and_morty/bottom_nav_bar.dart';
 import 'package:rick_and_morty/features/characters/presentation/screens/home_screen.dart';
 import 'package:rick_and_morty/features/authorization/presentation/screens/registration_screen.dart';
-import 'package:rick_and_morty/features/authorization/presentation/screens/reset_password_screen.dart';
+import 'package:rick_and_morty/features/settings/presentation/screens/reset_password_screen.dart';
 import 'package:rick_and_morty/features/settings/presentation/screens/settings_screen.dart';
 import 'package:rick_and_morty/features/characters/presentation/screens/splash_screen.dart';
 import 'package:rick_and_morty/features/authorization/presentation/screens/verify_email_screen.dart';
