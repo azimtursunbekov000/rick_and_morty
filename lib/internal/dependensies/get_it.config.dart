@@ -13,7 +13,7 @@ import 'package:injectable/injectable.dart' as _i2;
 
 import '../../features/characters/data/repositories/user_repository_impl.dart'
     as _i4;
-import '../../features/characters/domain/presentation/user_repository.dart'
+import '../../features/characters/domain/repositories/user_repository.dart'
     as _i3;
 import '../../features/characters/domain/use_case/user_use_case.dart' as _i5;
 import '../../features/characters/presentation/logic/bloc/characters_bloc.dart'

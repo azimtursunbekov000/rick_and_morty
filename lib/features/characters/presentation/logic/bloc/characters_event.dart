@@ -6,9 +6,5 @@ sealed class CharactersEvent {}
 class GetAllCharactersEvent extends CharactersEvent {}
 
 
-class GetDetailCharacterEvent extends CharactersEvent {
-  
-
-}
 
 
