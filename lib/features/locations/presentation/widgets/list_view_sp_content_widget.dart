@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rick_and_morty/features/locations/presentation/logic/bloc/location_bloc.dart';
+import 'package:rick_and_morty/features/locations/presentation/screens/location_images.dart';
 import 'package:rick_and_morty/internal/helpers/text_helper.dart';
 
 class ListViewSPContent extends StatelessWidget {
   final LocationLoadedState state;
+  final ImagesLocation imagesLocation;
   const ListViewSPContent({
     super.key,
     required this.state,
+    required this.imagesLocation,
   });
 
   @override
@@ -15,15 +18,19 @@ class ListViewSPContent extends StatelessWidget {
     return ListView.separated(
       itemCount: state.locationResult.results?.length ?? 0,
       itemBuilder: ((context, index) {
+        final imageUrl = imagesLocation.getNextImageUrl();
         return Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Container(
               height: 150.h,
               width: 343.w,
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage("assets/images/location.png"),
+                  image: NetworkImage(
+                    imageUrl,
+                  ),
+                  fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.vertical(
                   top: Radius.circular(15),
@@ -32,7 +39,11 @@ class ListViewSPContent extends StatelessWidget {
             ),
             InkWell(
               onTap: () {
-                Navigator.of(context).pushNamed('/location_detail');
+                Navigator.pushNamed(
+                  context,
+                  '/location_detail',
+                  arguments: state.locationResult.results?[index],
+                );
               },
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 12.h),

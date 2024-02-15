@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rick_and_morty/features/characters/data/models/users_model.dart';
 import 'package:rick_and_morty/features/characters/presentation/screens/character_detail_screen.dart';
+import 'package:rick_and_morty/features/locations/data/models/locations_model.dart';
 import 'package:rick_and_morty/features/locations/presentation/screens/location_detail_screen.dart';
 import 'package:rick_and_morty/features/settings/presentation/screens/account_screen.dart';
 import 'package:rick_and_morty/features/authorization/presentation/screens/auth_screen.dart';
@@ -70,7 +71,10 @@ class MyApp extends StatelessWidget {
                   charactersResult: ModalRoute.of(context)?.settings.arguments
                       as CharacterModel,
                 ),
-                '/location_detail':(context) => const LocationDetailScreen(),
+            '/location_detail': (context) => LocationDetailScreen(
+                  locationModel: ModalRoute.of(context)?.settings.arguments
+                      as LocationModel,
+                ),
           },
           initialRoute: '/splash',
         );

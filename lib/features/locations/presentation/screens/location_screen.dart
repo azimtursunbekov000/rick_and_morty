@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rick_and_morty/features/characters/presentation/widget/search_widget.dart';
 import 'package:rick_and_morty/features/locations/presentation/logic/bloc/location_bloc.dart';
+import 'package:rick_and_morty/features/locations/presentation/screens/location_images.dart';
 import 'package:rick_and_morty/features/locations/presentation/widgets/list_view_sp_content_widget.dart';
 
 import 'package:rick_and_morty/internal/dependensies/get_it.dart';
@@ -71,7 +72,10 @@ class _LocationsScreenState extends State<LocationsScreen> {
                     SizedBox(height: 24.h),
                     SizedBox(
                       height: 590.h,
-                      child: ListViewSPContent(state: state),
+                      child: ListViewSPContent(
+                        state: state,
+                        imagesLocation: imagesLocation,
+                      ),
                     ),
                   ],
                 );
