@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rick_and_morty/features/characters/presentation/widget/search_widget.dart';
 import 'package:rick_and_morty/features/locations/presentation/logic/bloc/location_bloc.dart';
+import 'package:rick_and_morty/features/locations/presentation/widgets/list_view_sp_content_widget.dart';
 
 import 'package:rick_and_morty/internal/dependensies/get_it.dart';
 import 'package:rick_and_morty/internal/helpers/catch_exception.dart';
@@ -70,42 +71,7 @@ class _LocationsScreenState extends State<LocationsScreen> {
                     SizedBox(height: 24.h),
                     SizedBox(
                       height: 590.h,
-                      child: ListView.separated(
-                        itemCount: state.locationResult.results?.length ?? 0,
-                        itemBuilder: ((context, index) {
-                          return Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Container(
-                                height: 150.h,
-                                width: 343.w,
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                    image: AssetImage(
-                                        "assets/images/location.png"),
-                                  ),
-                                  color: Colors.amber,
-                                  borderRadius: BorderRadius.vertical(
-                                    top: Radius.circular(15),
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                height: 68.h,
-                                decoration: BoxDecoration(
-                                  color: Colors.black,
-                                  borderRadius: BorderRadius.vertical(
-                                    bottom: Radius.circular(15),
-                                  ),
-                                ),
-                              )
-                            ],
-                          );
-                        }),
-                        separatorBuilder: (context, index) {
-                          return SizedBox(height: 24.h);
-                        },
-                      ),
+                      child: ListViewSPContent(state: state),
                     ),
                   ],
                 );
