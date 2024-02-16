@@ -30,59 +30,51 @@ class _LocationsScreenState extends State<LocationsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.symmetric(
-          vertical: 24.h,
-          horizontal: 15.w,
-        ),
-        child: Center(
-          child: BlocConsumer<LocationBloc, LocationState>(
-            bloc: locationBloc,
-            listener: (context, state) {
-              if (state is LocationErrorState) {
-                final catchException =
-                    CatchException.convertException(state.error);
+        padding: EdgeInsets.symmetric(horizontal: 15.w),
+        child: BlocConsumer<LocationBloc, LocationState>(
+          bloc: locationBloc,
+          listener: (context, state) {
+            if (state is LocationErrorState) {
+              final catchException =
+                  CatchException.convertException(state.error);
 
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content:
-                        Text(catchException.message ?? "Что-то пошло не так"),
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content:
+                      Text(catchException.message ?? "Что-то пошло не так"),
+                ),
+              );
+            }
+          },
+          builder: (context, state) {
+            if (state is LocationsScreen) {
+              return const CircularProgressIndicator();
+            }
+
+            if (state is LocationLoadedState) {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(height: 50.h),
+                  const SearchWidget(hintText: 'Найти локацию'),
+                  SizedBox(height: 10.h),
+                  Text(
+                    "Всего локаций: ${state.locationResult.info?.count.toString()}",
+                    style: TextHelper.discriptionw400s12,
                   ),
-                );
-              }
-            },
-            builder: (context, state) {
-              if (state is LocationsScreen) {
-                return const CircularProgressIndicator();
-              }
-
-              if (state is LocationLoadedState) {
-                return ListView(
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const SearchWidget(hintText: 'Найти локацию'),
-                        SizedBox(height: 10.h),
-                        Text(
-                          "Всего локаций: ${state.locationResult.info?.count.toString()}",
-                          style: TextHelper.discriptionw400s12,
-                        ),
-                      ],
+                  SizedBox(height: 24.h),
+                  SizedBox(
+                    height: 560.h,
+                    child: ListViewSPContent(
+                      state: state,
+                      imagesLocation: imagesLocation,
                     ),
-                    SizedBox(height: 24.h),
-                    SizedBox(
-                      height: 590.h,
-                      child: ListViewSPContent(
-                        state: state,
-                        imagesLocation: imagesLocation,
-                      ),
-                    ),
-                  ],
-                );
-              }
-              return const SizedBox();
-            },
-          ),
+                  ),
+                ],
+              );
+            }
+            return const SizedBox();
+          },
         ),
       ),
     );

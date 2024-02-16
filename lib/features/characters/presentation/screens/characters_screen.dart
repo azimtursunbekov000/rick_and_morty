@@ -32,36 +32,36 @@ class _CharactersScreenState extends State<CharactersScreen> {
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.symmetric(
-          vertical: 24.h,
           horizontal: 15.w,
         ),
-        child: Center(
-          child: BlocConsumer<CharactersBloc, CharactersState>(
-            bloc: charactersBloc,
-            listener: (context, state) {
-              if (state is CharactersErrorState) {
-                final catchException =
-                    CatchException.convertException(state.error);
+        child: Column(
+          children: [
+            Expanded(
+              child: BlocConsumer<CharactersBloc, CharactersState>(
+                bloc: charactersBloc,
+                listener: (context, state) {
+                  if (state is CharactersErrorState) {
+                    final catchException =
+                        CatchException.convertException(state.error);
 
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content:
-                        Text(catchException.message ?? "Что-то пошло не так"),
-                  ),
-                );
-              }
-            },
-            builder: (context, state) {
-              if (state is Characters) {
-                return const CircularProgressIndicator();
-              }
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(
+                            catchException.message ?? "Что-то пошло не так"),
+                      ),
+                    );
+                  }
+                },
+                builder: (context, state) {
+                  if (state is Characters) {
+                    return const CircularProgressIndicator();
+                  }
 
-              if (state is CharactersLoadedState) {
-                return ListView(
-                  children: [
-                    Column(
+                  if (state is CharactersLoadedState) {
+                    return Column(
                       children: [
-                        SearchWidget(hintText: 'Найти персонажа'),
+                        SizedBox(height: 50.h),
+                        const SearchWidget(hintText: 'Найти персонажа'),
                         SizedBox(height: 10.h),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -82,21 +82,23 @@ class _CharactersScreenState extends State<CharactersScreen> {
                             ),
                           ],
                         ),
+                        SizedBox(height: 24.h),
+                        Expanded(
+                          child: Container(
+                            height: 640.h,
+                            child: isGridView
+                                ? GridViewBuilderContent(state: state)
+                                : ListViewSeparatedContent(state: state),
+                          ),
+                        ),
                       ],
-                    ),
-                    SizedBox(height: 24.h),
-                    SizedBox(
-                      height: 590.h,
-                      child: isGridView
-                          ? GridViewBuilderContent(state: state)
-                          : ListViewSeparatedContent(state: state),
-                    ),
-                  ],
-                );
-              }
-              return const SizedBox();
-            },
-          ),
+                    );
+                  }
+                  return const SizedBox();
+                },
+              ),
+            ),
+          ],
         ),
       ),
     );

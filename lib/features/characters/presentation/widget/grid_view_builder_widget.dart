@@ -15,7 +15,8 @@ class GridViewBuilderContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+      padding: EdgeInsets.zero,
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         crossAxisSpacing: 10.0,
         mainAxisSpacing: 10.0,
@@ -30,51 +31,49 @@ class GridViewBuilderContent extends StatelessWidget {
               arguments: state.charactersResult.results?[index],
             );
           },
-          child: Container(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Container(
-                  width: 79.w,
-                  height: 79.h,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(39.5.r),
-                    image: DecorationImage(
-                      image: NetworkImage(
-                          state.charactersResult.results![index].image ?? ''),
-                    ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                width: 79.w,
+                height: 79.h,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(39.5.r),
+                  image: DecorationImage(
+                    image: NetworkImage(
+                        state.charactersResult.results![index].image ?? ''),
                   ),
                 ),
-                SizedBox(height: 18.h),
-                Text(
-                  statusConverter(
+              ),
+              SizedBox(height: 18.h),
+              Text(
+                statusConverter(
+                  state.charactersResult.results?[index].status,
+                ),
+                style: TextStyle(
+                  fontSize: 10.sp,
+                  fontWeight: FontWeight.w500,
+                  color: statusColorConverter(
                     state.charactersResult.results?[index].status,
                   ),
-                  style: TextStyle(
-                    fontSize: 10.sp,
-                    fontWeight: FontWeight.w500,
-                    color: statusColorConverter(
-                      state.charactersResult.results?[index].status,
-                    ),
-                  ),
                 ),
-                Text(
-                  state.charactersResult.results?[index].name ?? "",
-                  style: TextHelper.w600s16,
+              ),
+              Text(
+                state.charactersResult.results?[index].name ?? "",
+                style: TextHelper.w600s16,
+              ),
+              Text(
+                "${speciesConverter(state.charactersResult.results?[index].species)}, ${genderConverter(state.charactersResult.results?[index].gender)}",
+                overflow: TextOverflow.ellipsis,
+                maxLines: 1,
+                style: TextStyle(
+                  fontSize: 12.sp,
+                  fontWeight: FontWeight.w300,
+                  color: speciesColorConverter(
+                      state.charactersResult.results?[index].species),
                 ),
-                Text(
-                  "${speciesConverter(state.charactersResult.results?[index].species)}, ${genderConverter(state.charactersResult.results?[index].gender)}",
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 1,
-                  style: TextStyle(
-                    fontSize: 12.sp,
-                    fontWeight: FontWeight.w300,
-                    color: speciesColorConverter(
-                        state.charactersResult.results?[index].species),
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         );
       },

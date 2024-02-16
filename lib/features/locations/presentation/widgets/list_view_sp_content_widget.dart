@@ -16,6 +16,7 @@ class ListViewSPContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
+      padding: EdgeInsets.zero,
       itemCount: state.locationResult.results?.length ?? 0,
       itemBuilder: ((context, index) {
         final imageUrl = imagesLocation.getNextImageUrl();

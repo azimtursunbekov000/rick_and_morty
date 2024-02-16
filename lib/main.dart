@@ -68,7 +68,7 @@ class MyApp extends StatelessWidget {
             '/splash': (context) => const SplashScreen(),
             '/settings': (context) => const SettingsScreen(),
             '/characterDetail': (context) => CharacterDetailScreen(
-                  charactersResult: ModalRoute.of(context)?.settings.arguments
+                  charactersModel: ModalRoute.of(context)?.settings.arguments
                       as CharacterModel,
                 ),
             '/location_detail': (context) =>  LocationDetailScreen(

@@ -7,11 +7,11 @@ import 'package:rick_and_morty/internal/helpers/text_helper.dart';
 import 'package:rick_and_morty/internal/helpers/utils.dart';
 
 class CharacterDetailScreen extends StatefulWidget {
-  final CharacterModel charactersResult;
+  final CharacterModel charactersModel;
 
   const CharacterDetailScreen({
     Key? key,
-    required this.charactersResult,
+    required this.charactersModel,
   }) : super(key: key);
 
   @override
@@ -24,21 +24,19 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(218.0),
+        preferredSize: Size.fromHeight(218.0.h),
         child: AppBar(
           leading: IconButton(
             onPressed: () {
               Navigator.pop(context);
             },
-            icon: Icon(Icons.arrow_back),
+            icon: const Icon(Icons.arrow_back),
             color: Colors.white,
           ),
           flexibleSpace: Container(
-            height: 218.0,
             decoration: BoxDecoration(
-              color: Colors.red,
               image: DecorationImage(
-                image: NetworkImage(widget.charactersResult.image ?? ''),
+                image: NetworkImage(widget.charactersModel.image ?? ''),
                 fit: BoxFit.cover,
               ),
             ),
@@ -47,7 +45,7 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
               clipBehavior: Clip.none,
               children: [
                 Positioned(
-                  top: 150,
+                  top: 190.h,
                   child: Container(
                     height: 150.h,
                     width: 150.w,
@@ -58,14 +56,14 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
                   ),
                 ),
                 Positioned(
-                  top: 157,
+                  top: 197.h,
                   child: Container(
                     height: 135.h,
                     width: 135.w,
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         image:
-                            NetworkImage(widget.charactersResult.image ?? ''),
+                            NetworkImage(widget.charactersModel.image ?? ''),
                       ),
                       shape: BoxShape.circle,
                       color: Colors.white,
@@ -80,7 +78,10 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
       body: Stack(
         children: [
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10.w),
+            padding: EdgeInsets.symmetric(
+              horizontal: 10.w,
+              vertical: 40.h,
+            ),
             child: Column(
               children: [
                 Container(
@@ -91,14 +92,14 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
                     child: Column(
                       children: [
                         Text(
-                          widget.charactersResult.name ?? '',
+                          widget.charactersModel.name ?? '',
                           style: TextHelper.w600s34,
                         ),
                         Text(
-                          statusConverter(widget.charactersResult.status),
+                          statusConverter(widget.charactersModel.status),
                           style: TextStyle(
                             color: statusColorConverter(
-                              widget.charactersResult.status,
+                              widget.charactersModel.status,
                             ),
                           ),
                         ),
@@ -120,9 +121,9 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
                                 ),
                                 DescriptionWidget(
                                   firstText: genderConverter(
-                                      widget.charactersResult.gender),
+                                      widget.charactersModel.gender),
                                   secondText: speciesConverter(
-                                    widget.charactersResult.species,
+                                    widget.charactersModel.species,
                                   ),
                                 ),
                                 SizedBox(height: 20.h),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rick_and_morty/features/locations/data/models/locations_model.dart';
-import 'package:rick_and_morty/features/locations/presentation/screens/location_images.dart';
+import 'package:rick_and_morty/features/locations/presentation/widgets/location_detail_listV_widget.dart';
 import 'package:rick_and_morty/internal/helpers/text_helper.dart';
 
 class LocationDetailScreen extends StatefulWidget {
@@ -80,21 +80,7 @@ class _LocationDetailScreenState extends State<LocationDetailScreen> {
                         style: TextHelper.w600s16,
                       ),
                     ),
-                    Expanded(
-                      flex: 1,
-                      child: ListView.separated(
-                        itemCount: widget.locationModel.residents?.length ?? 0,
-                        itemBuilder: (context, index) {
-                          return Container(
-                            color: Colors.red,
-                            height: 74.h,
-                          );
-                        },
-                        separatorBuilder: (context, index) {
-                          return SizedBox(height: 10.h);
-                        },
-                      ),
-                    ),
+                    LocationDetailListvWidget(widget: widget),
                   ],
                 ),
               ),
