@@ -35,21 +35,10 @@ class _BottomNavBarState extends State<BottomNavBarScreen> {
     return Scaffold(
       body: screens.elementAt(selectedIndex),
       bottomNavigationBar: BottomNavigationBar(
-        // fixedColor: Colors.red,
         type: BottomNavigationBarType.fixed,
         showUnselectedLabels: true,
-        // backgroundColor: Colors.blue,
-        // iconSize: 24,
         selectedItemColor: Colors.blue,
         unselectedItemColor: Colors.black26,
-        // selectedIconTheme: IconThemeData(
-        //   color: Colors.black,
-        // ),
-        // selectedLabelStyle: TextStyle(
-        //   fontSize: 10,
-        //   fontWeight: FontWeight.bold,
-        // ),
-
         items: [
           BottomNavigationBarItem(
             icon: Image.asset(

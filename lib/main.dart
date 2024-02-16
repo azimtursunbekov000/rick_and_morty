@@ -71,7 +71,7 @@ class MyApp extends StatelessWidget {
                   charactersResult: ModalRoute.of(context)?.settings.arguments
                       as CharacterModel,
                 ),
-            '/location_detail': (context) => LocationDetailScreen(
+            '/location_detail': (context) =>  LocationDetailScreen(
                   locationModel: ModalRoute.of(context)?.settings.arguments
                       as LocationModel,
                 ),

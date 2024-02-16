@@ -61,7 +61,7 @@ class _LocationsScreenState extends State<LocationsScreen> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SearchWidget(),
+                        const SearchWidget(hintText: 'Найти локацию'),
                         SizedBox(height: 10.h),
                         Text(
                           "Всего локаций: ${state.locationResult.info?.count.toString()}",

@@ -42,4 +42,9 @@ abstract class TextHelper {
     fontSize: 12.sp,
     color: ThemeColor.discription,
   );
+
+  static TextStyle locationName = TextStyle(
+    fontSize: 24.sp,
+    color: ThemeColor.colorTextWh,
+  );
 }

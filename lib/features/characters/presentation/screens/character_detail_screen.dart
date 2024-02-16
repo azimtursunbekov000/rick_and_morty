@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rick_and_morty/features/characters/data/models/users_model.dart';
-import 'package:rick_and_morty/features/characters/presentation/logic/bloc/characters_bloc.dart';
 import 'package:rick_and_morty/features/characters/presentation/widget/detail_description_widget.dart';
 import 'package:rick_and_morty/features/characters/presentation/widget/detail_gender_species_widget.dart';
-import 'package:rick_and_morty/internal/dependensies/get_it.dart';
 import 'package:rick_and_morty/internal/helpers/text_helper.dart';
 import 'package:rick_and_morty/internal/helpers/utils.dart';
 
@@ -21,14 +19,6 @@ class CharacterDetailScreen extends StatefulWidget {
 }
 
 class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
-  CharactersBloc charactersBloc = getIt<CharactersBloc>();
-
-  @override
-  void initState() {
-    charactersBloc.add(GetAllCharactersEvent());
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

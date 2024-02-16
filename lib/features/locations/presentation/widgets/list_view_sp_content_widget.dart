@@ -32,7 +32,7 @@ class ListViewSPContent extends StatelessWidget {
                   ),
                   fit: BoxFit.cover,
                 ),
-                borderRadius: BorderRadius.vertical(
+                borderRadius: const BorderRadius.vertical(
                   top: Radius.circular(15),
                 ),
               ),
@@ -70,7 +70,10 @@ class ListViewSPContent extends StatelessWidget {
                       style: TextHelper.w600s16,
                     ),
                     SizedBox(height: 7.h),
-                    Text(state.locationResult.results?[index].dimension ?? '')
+                    Text(
+                      state.locationResult.results?[index].dimension ?? '',
+                      style: TextHelper.discriptionw400s12,
+                    )
                   ],
                 ),
               ),

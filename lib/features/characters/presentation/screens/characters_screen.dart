@@ -61,7 +61,7 @@ class _CharactersScreenState extends State<CharactersScreen> {
                   children: [
                     Column(
                       children: [
-                        SearchWidget(),
+                        SearchWidget(hintText: 'Найти персонажа'),
                         SizedBox(height: 10.h),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,

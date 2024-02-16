@@ -3,8 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rick_and_morty/internal/helpers/text_helper.dart';
 
 class SearchWidget extends StatelessWidget {
+  final String hintText;
   const SearchWidget({
-    super.key,
+    super.key, required this.hintText,
   });
 
   @override
@@ -15,7 +16,7 @@ class SearchWidget extends StatelessWidget {
         fillColor: const Color(0xffF2F2F2),
         prefixIcon: const Icon(Icons.search),
         suffixIcon: const Icon(Icons.filter),
-        hintText: 'Найти персонажа',
+        hintText: hintText,
         hintStyle: TextHelper.hintText,
         contentPadding: EdgeInsets.symmetric(
           horizontal: 10.w,
