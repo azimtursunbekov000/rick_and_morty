@@ -18,7 +18,11 @@ class LocationRepositoryImpl implements LocationRepository {
       log('getAllLocations result == ${response.data}');
 
       if (response.statusCode == 200) {
-        return LocationResult.fromJson(response.data);
+        // var respons = LocationResult.fromJson(response.data);
+        // for (int i = 0; i <= respons.results![0].residents!.length; i++) {
+        //   Response response =
+        //       await apiRequester.toGet(respons.results![0].residents![i]);
+        // }
       }
       throw 'ощибка ${response.data}';
     } catch (e) {

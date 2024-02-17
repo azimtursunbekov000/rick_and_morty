@@ -62,8 +62,7 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
                     width: 135.w,
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                        image:
-                            NetworkImage(widget.charactersModel.image ?? ''),
+                        image: NetworkImage(widget.charactersModel.image ?? ''),
                       ),
                       shape: BoxShape.circle,
                       color: Colors.white,
@@ -75,65 +74,57 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
           ),
         ),
       ),
-      body: Stack(
-        children: [
-          Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: 10.w,
-              vertical: 40.h,
-            ),
+      body: Padding(
+        padding: EdgeInsets.symmetric(
+          horizontal: 10.w,
+          vertical: 40.h,
+        ),
+        child: Container(
+          height: 420.h,
+          width: double.infinity,
+          child: Padding(
+            padding: EdgeInsets.symmetric(vertical: 30.h),
             child: Column(
               children: [
-                Container(
-                  height: 420.h,
-                  width: double.infinity,
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(vertical: 30.h),
+                Text(
+                  widget.charactersModel.name ?? '',
+                  style: TextHelper.w600s34,
+                ),
+                Text(
+                  statusConverter(widget.charactersModel.status),
+                  style: TextStyle(
+                    color: statusColorConverter(
+                      widget.charactersModel.status,
+                    ),
+                  ),
+                ),
+                const Expanded(
+                  flex: -1,
+                  child: Text(
+                      "Главный протагонист мультсериала «Рик и Морти». Безумный ученый, чей алкоголизм, безрассудность и социопатия заставляют беспокоиться семью его дочери."),
+                ),
+                SizedBox(height: 10.h),
+                Expanded(
+                  flex: -2,
+                  child: Container(
+                    height: 156,
                     child: Column(
                       children: [
-                        Text(
-                          widget.charactersModel.name ?? '',
-                          style: TextHelper.w600s34,
+                        const GenderAndSpeciesWidget(
+                          firstText: 'Пол',
+                          secondText: 'Расса',
                         ),
-                        Text(
-                          statusConverter(widget.charactersModel.status),
-                          style: TextStyle(
-                            color: statusColorConverter(
-                              widget.charactersModel.status,
-                            ),
+                        DescriptionWidget(
+                          firstText:
+                              genderConverter(widget.charactersModel.gender),
+                          secondText: speciesConverter(
+                            widget.charactersModel.species,
                           ),
                         ),
-                        const Expanded(
-                          flex: -1,
-                          child: Text(
-                              "Главный протагонист мультсериала «Рик и Морти». Безумный ученый, чей алкоголизм, безрассудность и социопатия заставляют беспокоиться семью его дочери."),
-                        ),
-                        SizedBox(height: 10.h),
-                        Expanded(
-                          flex: -2,
-                          child: Container(
-                            height: 156,
-                            child: Column(
-                              children: [
-                                const GenderAndSpeciesWidget(
-                                  firstText: 'Пол',
-                                  secondText: 'Расса',
-                                ),
-                                DescriptionWidget(
-                                  firstText: genderConverter(
-                                      widget.charactersModel.gender),
-                                  secondText: speciesConverter(
-                                    widget.charactersModel.species,
-                                  ),
-                                ),
-                                SizedBox(height: 20.h),
-                                Container(
-                                  height: 36.h,
-                                  color: Colors.black38,
-                                ),
-                              ],
-                            ),
-                          ),
+                        SizedBox(height: 20.h),
+                        Container(
+                          height: 36.h,
+                          color: Colors.black38,
                         ),
                       ],
                     ),
@@ -142,7 +133,7 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
               ],
             ),
           ),
-        ],
+        ),
       ),
     );
   }

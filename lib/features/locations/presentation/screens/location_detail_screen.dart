@@ -23,6 +23,7 @@ class _LocationDetailScreenState extends State<LocationDetailScreen> {
       body: Stack(
         children: [
           Container(
+            alignment: Alignment(-1, -0.5),
             height: 298,
             decoration: const BoxDecoration(
               image: DecorationImage(
@@ -80,7 +81,10 @@ class _LocationDetailScreenState extends State<LocationDetailScreen> {
                         style: TextHelper.w600s16,
                       ),
                     ),
-                    LocationDetailListvWidget(widget: widget),
+                    LocationDetailListvWidget(
+                      widget: widget,
+                      locationModel: widget.locationModel,
+                    ),
                   ],
                 ),
               ),
