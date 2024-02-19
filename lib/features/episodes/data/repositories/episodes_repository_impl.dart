@@ -3,11 +3,13 @@
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 import 'package:rick_and_morty/features/episodes/data/models/episodes_model.dart';
 import 'package:rick_and_morty/features/episodes/domain/repositories/episodes_repository.dart';
 import 'package:rick_and_morty/internal/helpers/api_requester.dart';
 import 'package:rick_and_morty/internal/helpers/catch_exception.dart';
 
+@Injectable(as: EpisodesRepository)
 class EpisodesRepositoryImpl implements EpisodesRepository {
   ApiRequester apiRequester = ApiRequester();
 

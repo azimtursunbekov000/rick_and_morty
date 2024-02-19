@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rick_and_morty/features/characters/data/models/users_model.dart';
 import 'package:rick_and_morty/features/characters/presentation/screens/character_detail_screen.dart';
+import 'package:rick_and_morty/features/episodes/data/models/episodes_model.dart';
+import 'package:rick_and_morty/features/episodes/presentation/screens/episode_detail_screen.dart';
 import 'package:rick_and_morty/features/locations/data/models/locations_model.dart';
 import 'package:rick_and_morty/features/locations/presentation/screens/location_detail_screen.dart';
 import 'package:rick_and_morty/features/settings/presentation/screens/account_screen.dart';
 import 'package:rick_and_morty/features/authorization/presentation/screens/auth_screen.dart';
 import 'package:rick_and_morty/bottom_nav_bar.dart';
-import 'package:rick_and_morty/features/characters/presentation/screens/home_screen.dart';
+import 'package:rick_and_morty/features/settings/presentation/screens/home_screen.dart';
 import 'package:rick_and_morty/features/authorization/presentation/screens/registration_screen.dart';
 import 'package:rick_and_morty/features/settings/presentation/screens/reset_password_screen.dart';
 import 'package:rick_and_morty/features/settings/presentation/screens/settings_screen.dart';
@@ -71,10 +73,14 @@ class MyApp extends StatelessWidget {
                   charactersModel: ModalRoute.of(context)?.settings.arguments
                       as CharacterModel,
                 ),
-            '/location_detail': (context) =>  LocationDetailScreen(
+            '/location_detail': (context) => LocationDetailScreen(
                   locationModel: ModalRoute.of(context)?.settings.arguments
                       as LocationModel,
                 ),
+            '/episode_detail': (context) => EpisodeDetailScreen(
+                  episodesModel: ModalRoute.of(context)?.settings.arguments
+                      as EpisodesModel,
+                )
           },
           initialRoute: '/splash',
         );
