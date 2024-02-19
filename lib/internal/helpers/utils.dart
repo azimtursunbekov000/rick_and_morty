@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rick_and_morty/features/characters/data/models/users_model.dart';
+import 'package:rick_and_morty/features/characters/data/models/characters_model.dart';
 
 String statusConverter(Status? status) {
   switch (status) {

@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rick_and_morty/features/characters/data/models/users_model.dart';
+import 'package:rick_and_morty/features/characters/data/models/characters_model.dart';
 import 'package:rick_and_morty/features/characters/presentation/screens/character_detail_screen.dart';
 import 'package:rick_and_morty/features/episodes/data/models/episodes_model.dart';
 import 'package:rick_and_morty/features/episodes/presentation/screens/episode_detail_screen.dart';

@@ -11,11 +11,11 @@
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
-import '../../features/characters/data/repositories/user_repository_impl.dart'
+import '../../features/characters/data/repositories/characters_repository_impl.dart'
     as _i10;
-import '../../features/characters/domain/repositories/user_repository.dart'
+import '../../features/characters/domain/repositories/characters_repository.dart'
     as _i9;
-import '../../features/characters/domain/use_case/user_use_case.dart' as _i11;
+import '../../features/characters/domain/use_case/characters_use_case.dart' as _i11;
 import '../../features/characters/presentation/logic/bloc/characters_bloc.dart'
     as _i12;
 import '../../features/episodes/data/repositories/episodes_repository_impl.dart'
