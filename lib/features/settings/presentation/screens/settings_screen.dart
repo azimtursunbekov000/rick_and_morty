@@ -29,10 +29,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        leading: IconButton(
-          onPressed: () => signOut(),
-          icon: Icon(Icons.arrow_back),
-        ),
+        automaticallyImplyLeading: false,
         title: const Text('Настройки'),
       ),
       body: Padding(
@@ -44,14 +41,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
               height: 80.h,
               child: Row(
                 children: [
-                  Container(
-                    width: 80.w,
-                    decoration: const BoxDecoration(
-                      color: Colors.black,
-                      shape: BoxShape.circle,
+                  CircleAvatar(
+                    radius: 50.r,
+                    child: Image.network(
+                      "https://img.freepik.com/premium-vector/user-profile-icon-flat-style-member-avatar-vector-illustration-isolated-background-human-permission-sign-business-concept_157943-15752.jpg",
+                      fit: BoxFit.cover,
                     ),
                   ),
-                  SizedBox(width: 10.w),
                   Text('${user?.email}'),
                 ],
               ),
@@ -59,7 +55,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
             SizedBox(height: 30.h),
             Center(
               child: CustomElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, '/detail_user');
+                },
                 label: 'Редактировать',
               ),
             ),
@@ -69,10 +67,46 @@ class _SettingsScreenState extends State<SettingsScreen> {
               "Внешний вид",
               style: TextHelper.discriptionw400s12,
             ),
-            BlackThemeWidget(),
-            TextButton(
-              onPressed: () => signOut(),
-              child: const Text('Выйти'),
+            const BlackThemeWidget(),
+            SizedBox(height: 30.h),
+            Expanded(
+              flex: -1,
+              child: Text(
+                "О приложении",
+                style: TextHelper.discriptionw400s12,
+              ),
+            ),
+            SizedBox(height: 10.h),
+            const Expanded(
+              flex: -1,
+              child: Text(
+                  "Зигерионцы помещают Джерри и Рика в симуляцию, чтобы узнать секрет изготовления концентрированной темной материи."),
+            ),
+            SizedBox(height: 30.h),
+            Expanded(
+              flex: -1,
+              child: Divider(),
+            ),
+            Expanded(
+              flex: -1,
+              child: Text(
+                "Версия приложения",
+                style: TextHelper.discriptionw400s12,
+              ),
+            ),
+            SizedBox(height: 10.h),
+            Expanded(
+              flex: -1,
+              child: Text(
+                "Rick & Morty  v1.0.0",
+                style: TextHelper.w600s14,
+              ),
+            ),
+            Center(
+              child: TextButton(
+                onPressed: () => signOut(),
+                child: const Text('Выйти'),
+              ),
             ),
           ],
         ),

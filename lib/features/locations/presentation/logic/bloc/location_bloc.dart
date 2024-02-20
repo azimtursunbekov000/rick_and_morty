@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
+import 'package:rick_and_morty/features/characters/data/models/characters_model.dart';
 import 'package:rick_and_morty/features/locations/data/models/locations_model.dart';
 import 'package:rick_and_morty/features/locations/domain/use_case/location_use_case.dart';
 import 'package:rick_and_morty/internal/helpers/catch_exception.dart';
@@ -22,6 +23,15 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
         print('error bloc $e');
         emit(LocationErrorState(error: CatchException.convertException(e)));
       }
+    });
+
+    on<GetResidentEvent>((event, emit) async {
+      await locationUseCase
+          .getResident(event.locationResultModel)
+          .then((residentModel) =>
+              emit(ResidentLoadedState(residentsModel: residentModel)))
+          .onError((error, stackTrace) => emit(LocationErrorState(
+              error: CatchException.convertException(error))));
     });
   }
 }

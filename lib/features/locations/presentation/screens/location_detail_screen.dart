@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rick_and_morty/features/locations/data/models/locations_model.dart';
@@ -6,7 +7,6 @@ import 'package:rick_and_morty/internal/helpers/text_helper.dart';
 
 class LocationDetailScreen extends StatefulWidget {
   final LocationModel locationModel;
-  // final ImagesLocation imagesLocation;
   const LocationDetailScreen({
     Key? key,
     required this.locationModel,
@@ -14,6 +14,12 @@ class LocationDetailScreen extends StatefulWidget {
 
   @override
   State<LocationDetailScreen> createState() => _LocationDetailScreenState();
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(
+        DiagnosticsProperty<LocationModel>('characterModel', locationModel));
+  }
 }
 
 class _LocationDetailScreenState extends State<LocationDetailScreen> {
@@ -23,7 +29,7 @@ class _LocationDetailScreenState extends State<LocationDetailScreen> {
       body: Stack(
         children: [
           Container(
-            alignment: Alignment(-1, -0.5),
+            alignment: const Alignment(-1, -0.5),
             height: 298,
             decoration: const BoxDecoration(
               image: DecorationImage(

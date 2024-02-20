@@ -8,7 +8,7 @@ class LocationDetailListvWidget extends StatelessWidget {
   const LocationDetailListvWidget({
     super.key,
     required this.widget,
-    required this.locationModel,
+    required this.locationModel, 
   });
 
   final LocationDetailScreen widget;

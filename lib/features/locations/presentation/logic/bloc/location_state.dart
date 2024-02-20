@@ -18,3 +18,9 @@ class LocationErrorState extends LocationState {
 
   LocationErrorState({required this.error});
 }
+
+class ResidentLoadedState extends LocationState {
+  final List<CharacterModel> residentsModel;
+
+  ResidentLoadedState({required this.residentsModel});
+}

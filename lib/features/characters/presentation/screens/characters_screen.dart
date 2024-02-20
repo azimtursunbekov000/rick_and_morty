@@ -18,10 +18,14 @@ class CharactersScreen extends StatefulWidget {
 
 class _CharactersScreenState extends State<CharactersScreen> {
   CharactersBloc charactersBloc = getIt<CharactersBloc>();
+  int count = 0;
+
 
   @override
   void initState() {
-    charactersBloc.add(GetAllCharactersEvent());
+    charactersBloc.add(GetAllCharactersEvent(
+      
+    ));
     super.initState();
   }
 

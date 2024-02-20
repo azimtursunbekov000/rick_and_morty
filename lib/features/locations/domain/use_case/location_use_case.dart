@@ -1,4 +1,5 @@
 import 'package:injectable/injectable.dart';
+import 'package:rick_and_morty/features/characters/data/models/characters_model.dart';
 import 'package:rick_and_morty/features/locations/data/models/locations_model.dart';
 import 'package:rick_and_morty/features/locations/domain/repositories/location_repository.dart';
 @injectable
@@ -9,5 +10,9 @@ class LocationUseCase {
 
   Future<LocationResult> getAllLocations() async {
     return await locationRepository.getAllLocations();
+  }
+
+  Future<List<CharacterModel>> getResident(LocationModel locationResidents) async{
+    return await locationRepository.getResidents(locationResidents);
   }
 }

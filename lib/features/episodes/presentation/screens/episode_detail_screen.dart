@@ -16,6 +16,7 @@ class EpisodeDetailScreen extends StatelessWidget {
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(218.0.h),
         child: AppBar(
+          automaticallyImplyLeading: false,
           leading: IconButton(
             onPressed: () {
               Navigator.pop(context);

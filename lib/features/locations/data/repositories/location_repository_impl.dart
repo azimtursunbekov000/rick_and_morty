@@ -1,7 +1,10 @@
+// ignore_for_file: avoid_print
+
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
+import 'package:rick_and_morty/features/characters/data/models/characters_model.dart';
 import 'package:rick_and_morty/features/locations/data/models/locations_model.dart';
 import 'package:rick_and_morty/features/locations/domain/repositories/location_repository.dart';
 import 'package:rick_and_morty/internal/helpers/api_requester.dart';
@@ -28,5 +31,20 @@ class LocationRepositoryImpl implements LocationRepository {
     }
   }
 
-  
+  @override
+  Future<List<CharacterModel>> getResidents(
+      LocationModel locationResidents) async {
+    try {
+      List<CharacterModel> residentModelList = [];
+      for (var element in locationResidents.residents!) {
+        Response response =
+            await apiRequester.toGet('character/${element.substring(42)}');
+        residentModelList.add(CharacterModel.fromJson(response.data));
+      }
+      return residentModelList;
+    } catch (e) {
+      print("error == $e");
+      throw CatchException.convertException(e);
+    }
+  }
 }

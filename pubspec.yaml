@@ -46,6 +46,11 @@ dependencies:
   build_runner: ^2.4.8
   injectable: ^2.3.2
   injectable_generator: ^2.4.1
+  provider: ^6.1.1
+  shared_preferences: ^2.2.2
+  image_picker: ^1.0.7
+  firebase_storage: ^11.6.6
+  cloud_firestore: ^4.15.5
 
 dev_dependencies:
   flutter_test:

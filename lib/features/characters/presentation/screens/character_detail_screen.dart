@@ -26,6 +26,7 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(218.0.h),
         child: AppBar(
+          automaticallyImplyLeading: false,
           leading: IconButton(
             onPressed: () {
               Navigator.pop(context);

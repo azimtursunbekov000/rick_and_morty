@@ -52,7 +52,7 @@ class _EpisodesScreenState extends State<EpisodesScreen> {
                     children: [
                       SizedBox(height: 50.h),
                       const SearchWidget(hintText: 'Найти эпизод'),
-                      const SizedBox(height: 30),
+                       SizedBox(height: 30.h),
                       const TabBar(
                         labelStyle: TextStyle(
                           fontWeight: FontWeight.w600,
@@ -90,7 +90,7 @@ class _EpisodesScreenState extends State<EpisodesScreen> {
                 ),
               );
             }
-            return SizedBox();
+            return const SizedBox();
           },
         ),
       ),
