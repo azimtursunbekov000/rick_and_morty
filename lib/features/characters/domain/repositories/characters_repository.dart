@@ -3,7 +3,6 @@ import 'package:rick_and_morty/features/characters/data/models/characters_model.
 abstract class UserRepository {
   ///RU: получение информацию всех пользователей
   ///
-  ///EN:getting the information of all users
-
+  ///EN: getting the information of all users
   Future<CharactersResult> getAllCharacters();
 }

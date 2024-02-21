@@ -26,12 +26,15 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
     });
 
     on<GetResidentEvent>((event, emit) async {
-      await locationUseCase
-          .getResident(event.locationResultModel)
-          .then((residentModel) =>
-              emit(ResidentLoadedState(residentsModel: residentModel)))
-          .onError((error, stackTrace) => emit(LocationErrorState(
-              error: CatchException.convertException(error))));
+      emit(LocationLoadingState());
+
+      try {
+        List<CharacterModel> characterModelList =
+            await locationUseCase.getResident(event.locationResultModel);
+        emit(ResidentLoadedState(residentsModel: characterModelList));
+      } catch (e) {
+        emit(LocationErrorState(error: CatchException.convertException(e)));
+      }
     });
   }
 }

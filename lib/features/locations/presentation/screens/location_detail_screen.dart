@@ -88,7 +88,7 @@ class _LocationDetailScreenState extends State<LocationDetailScreen> {
                       ),
                     ),
                     LocationDetailListvWidget(
-                      widget: widget,
+                      // widget: widget,
                       locationModel: widget.locationModel,
                     ),
                   ],

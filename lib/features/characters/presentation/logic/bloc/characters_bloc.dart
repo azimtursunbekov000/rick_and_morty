@@ -14,6 +14,7 @@ part 'characters_state.dart';
 @injectable
 class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
   final UserUseCase userUseCase;
+
   CharactersBloc(this.userUseCase) : super(CharactersInitialState()) {
     on<GetAllCharactersEvent>((event, emit) async {
       try {

@@ -13,6 +13,7 @@ import 'package:rick_and_morty/internal/helpers/catch_exception.dart';
 @Injectable(as: LocationRepository)
 class LocationRepositoryImpl implements LocationRepository {
   ApiRequester apiRequester = ApiRequester();
+
   @override
   Future<LocationResult> getAllLocations() async {
     try {
@@ -32,15 +33,17 @@ class LocationRepositoryImpl implements LocationRepository {
   }
 
   @override
-  Future<List<CharactersResult>> getResidents(
-      LocationModel locationResidents) async {
+  Future<List<CharacterModel>> getResidents(LocationModel locationModel) async {
+    List<CharacterModel> residentModelList = [];
     try {
-      List<CharactersResult> residentModelList = [];
-      for (var element in locationResidents.residents!) {
-        Response response =
-            await apiRequester.toGet('character/${element.substring(42)}');
-        residentModelList.add(CharactersResult.fromJson(response.data));
+      for (var element in locationModel.residents ?? []) {
+        Response response = await apiRequester
+            .toGet('api/character/${element.replaceAll(RegExp('[^0-9]'), "")}');
+            
+        residentModelList.add(CharacterModel.fromJson(response.data));
       }
+      log("=" * 20);
+      log(residentModelList.toString());
       return residentModelList;
     } catch (e) {
       print("error == $e");

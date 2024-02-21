@@ -5,6 +5,7 @@ import 'package:rick_and_morty/features/characters/presentation/logic/bloc/chara
 import 'package:rick_and_morty/features/characters/presentation/widget/grid_view_builder_widget.dart';
 import 'package:rick_and_morty/features/characters/presentation/widget/list_view_sp_widget.dart';
 import 'package:rick_and_morty/features/characters/presentation/widget/search_widget.dart';
+import 'package:rick_and_morty/internal/commons/common_flushbar.dart';
 import 'package:rick_and_morty/internal/dependensies/get_it.dart';
 import 'package:rick_and_morty/internal/helpers/catch_exception.dart';
 import 'package:rick_and_morty/internal/helpers/text_helper.dart';
@@ -20,12 +21,9 @@ class _CharactersScreenState extends State<CharactersScreen> {
   CharactersBloc charactersBloc = getIt<CharactersBloc>();
   int count = 0;
 
-
   @override
   void initState() {
-    charactersBloc.add(GetAllCharactersEvent(
-      
-    ));
+    charactersBloc.add(GetAllCharactersEvent());
     super.initState();
   }
 
@@ -44,20 +42,24 @@ class _CharactersScreenState extends State<CharactersScreen> {
               child: BlocConsumer<CharactersBloc, CharactersState>(
                 bloc: charactersBloc,
                 listener: (context, state) {
+                  // setLoaderVisible(state is CharactersLoadingState);
+
                   if (state is CharactersErrorState) {
                     final catchException =
                         CatchException.convertException(state.error);
 
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text(
-                            catchException.message ?? "Что-то пошло не так"),
-                      ),
-                    );
+                    // ScaffoldMessenger.of(context).showSnackBar(
+                    //   SnackBar(
+                    //     content: Text(
+                    //         catchException.message ?? "Что-то пошло не так"),
+                    //   ),
+                    // );
+
+                    CommonFlushBar.show(context);
                   }
                 },
                 builder: (context, state) {
-                  if (state is Characters) {
+                  if (state is CharactersLoadingState) {
                     return const CircularProgressIndicator();
                   }
 
@@ -108,3 +110,11 @@ class _CharactersScreenState extends State<CharactersScreen> {
     );
   }
 }
+
+// setLoaderVisible(bool isVisible) {
+//   if (isVisible) {
+//     // show
+//   } else {
+//     easyLoading.remove();
+//   }
+// }

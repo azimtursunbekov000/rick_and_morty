@@ -14,6 +14,7 @@ class UserRepositoriImpl implements UserRepository {
   Future<CharactersResult> getAllCharacters() async {
     try {
       Response response = await apiRequester.toGet('api/character');
+
       if (response.statusCode == 200) {
         return CharactersResult.fromJson(response.data);
       }

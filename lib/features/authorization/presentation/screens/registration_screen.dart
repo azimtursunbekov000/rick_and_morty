@@ -78,7 +78,9 @@ class _SignUpScreen extends State<RegistrationScreen> {
     }
 
     navigator.pushNamedAndRemoveUntil(
-        '/bottom_nav_bar', (Route<dynamic> route) => false);
+      '/bottom_nav_bar',
+      (Route<dynamic> route) => false,
+    );
   }
 
   @override

@@ -11,5 +11,5 @@ abstract class LocationRepository {
   ///RU: получение информацию о резидентах
   ///
   ///EN:getting information about residents
-  Future<List<CharactersResult>> getResidents(LocationModel locationResidents);
+  Future<List<CharacterModel>> getResidents(LocationModel locationResidents);
 }

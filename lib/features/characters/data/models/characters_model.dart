@@ -7,11 +7,14 @@ class CharactersResult {
     this.results,
   });
 
-  factory CharactersResult.fromJson(Map<String, dynamic> json) => CharactersResult(
-    info: json["info"] == null ? null : Info.fromJson(json["info"]),
-    results: json["results"] == null ? [] : List<CharacterModel>.from(json["results"]!.map((x) => CharacterModel.fromJson(x))),
-  );
-
+  factory CharactersResult.fromJson(Map<String, dynamic> json) =>
+      CharactersResult(
+        info: json["info"] == null ? null : Info.fromJson(json["info"]),
+        results: json["results"] == null
+            ? []
+            : List<CharacterModel>.from(
+                json["results"]!.map((x) => CharacterModel.fromJson(x))),
+      );
 
   Map<String, dynamic> toJson() => {
         "info": info?.toJson(),
@@ -81,8 +84,8 @@ class CharacterModel {
   factory CharacterModel.fromJson(Map<String, dynamic> json) => CharacterModel(
         id: json["id"],
         name: json["name"],
-        status: statusValues.map[json["status"]]!,
-        species: speciesValues.map[json["species"]]!,
+        status: statusValues.map[json["status"]],
+        species: speciesValues.map[json["species"]],
         type: json["type"],
         gender: genderValues.map[json["gender"]]!,
         origin:
@@ -141,15 +144,31 @@ class Location {
       };
 }
 
-enum Species { ALIEN, HUMAN }
+enum Species {
+  ALIEN,
+  HUMAN,
+}
 
-final speciesValues =
-    EnumValues({"Alien": Species.ALIEN, "Human": Species.HUMAN});
+final speciesValues = EnumValues(
+  {
+    "Alien": Species.ALIEN,
+    "Human": Species.HUMAN,
+  },
+);
 
-enum Status { ALIVE, DEAD, UNKNOWN }
+enum Status {
+  ALIVE,
+  DEAD,
+  UNKNOWN,
+}
 
 final statusValues = EnumValues(
-    {"Alive": Status.ALIVE, "Dead": Status.DEAD, "unknown": Status.UNKNOWN});
+  {
+    "Alive": Status.ALIVE,
+    "Dead": Status.DEAD,
+    "unknown": Status.UNKNOWN,
+  },
+);
 
 class EnumValues<T> {
   Map<String, T> map;

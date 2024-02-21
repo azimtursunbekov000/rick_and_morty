@@ -13,6 +13,12 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
+  @override
+  void initState() {
+    print('init init init');
+    super.initState();
+  }
+
   final user = FirebaseAuth.instance.currentUser;
 
   Future<void> signOut() async {
