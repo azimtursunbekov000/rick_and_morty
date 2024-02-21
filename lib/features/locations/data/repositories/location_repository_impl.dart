@@ -32,14 +32,14 @@ class LocationRepositoryImpl implements LocationRepository {
   }
 
   @override
-  Future<List<CharacterModel>> getResidents(
+  Future<List<CharactersResult>> getResidents(
       LocationModel locationResidents) async {
     try {
-      List<CharacterModel> residentModelList = [];
+      List<CharactersResult> residentModelList = [];
       for (var element in locationResidents.residents!) {
         Response response =
             await apiRequester.toGet('character/${element.substring(42)}');
-        residentModelList.add(CharacterModel.fromJson(response.data));
+        residentModelList.add(CharactersResult.fromJson(response.data));
       }
       return residentModelList;
     } catch (e) {

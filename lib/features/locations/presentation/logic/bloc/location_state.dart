@@ -20,7 +20,7 @@ class LocationErrorState extends LocationState {
 }
 
 class ResidentLoadedState extends LocationState {
-  final List<CharacterModel> residentsModel;
+  final List<CharactersResult> residentsModel;
 
   ResidentLoadedState({required this.residentsModel});
 }
