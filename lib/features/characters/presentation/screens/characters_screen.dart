@@ -48,12 +48,12 @@ class _CharactersScreenState extends State<CharactersScreen> {
                     final catchException =
                         CatchException.convertException(state.error);
 
-                    // ScaffoldMessenger.of(context).showSnackBar(
-                    //   SnackBar(
-                    //     content: Text(
-                    //         catchException.message ?? "Что-то пошло не так"),
-                    //   ),
-                    // );
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(
+                            catchException.message ?? "Что-то пошло не так"),
+                      ),
+                    );
 
                     CommonFlushBar.show(context);
                   }

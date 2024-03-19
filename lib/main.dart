@@ -9,7 +9,7 @@ import 'package:rick_and_morty/features/episodes/presentation/screens/episode_de
 import 'package:rick_and_morty/features/locations/data/models/locations_model.dart';
 import 'package:rick_and_morty/features/locations/presentation/screens/location_detail_screen.dart';
 import 'package:rick_and_morty/features/authorization/presentation/screens/auth_screen.dart';
-import 'package:rick_and_morty/bottom_nav_bar.dart';
+import 'package:rick_and_morty/internal/components/bottom_nav_bar.dart';
 import 'package:rick_and_morty/features/authorization/presentation/screens/registration_screen.dart';
 import 'package:rick_and_morty/features/settings/presentation/screens/detail_user_info_screen.dart';
 import 'package:rick_and_morty/features/settings/presentation/screens/reset_password_screen.dart';
@@ -17,7 +17,7 @@ import 'package:rick_and_morty/features/settings/presentation/screens/settings_s
 import 'package:rick_and_morty/features/characters/presentation/screens/splash_screen.dart';
 import 'package:rick_and_morty/features/authorization/presentation/screens/verify_email_screen.dart';
 import 'package:rick_and_morty/features/settings/presentation/screens/theme_manager.dart';
-import 'package:rick_and_morty/firebase_options.dart';
+import 'package:rick_and_morty/internal/components/firebase_options.dart';
 import 'package:rick_and_morty/internal/dependensies/get_it.dart';
 import 'package:rick_and_morty/internal/services/firebase_streem.dart';
 

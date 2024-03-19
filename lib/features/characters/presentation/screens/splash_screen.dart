@@ -4,7 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rick_and_morty/features/authorization/presentation/screens/auth_screen.dart';
-import 'package:rick_and_morty/bottom_nav_bar.dart';
+import 'package:rick_and_morty/internal/components/bottom_nav_bar.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
