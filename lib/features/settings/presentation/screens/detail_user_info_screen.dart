@@ -2,8 +2,8 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:rick_and_morty/features/settings/presentation/screens/add_data.dart';
-import 'package:rick_and_morty/features/settings/presentation/screens/utils_image.dart';
+import 'package:rick_and_morty/internal/components/add_data.dart';
+import 'package:rick_and_morty/internal/components/utils_image.dart';
 import 'package:rick_and_morty/internal/helpers/text_helper.dart';
 
 class DetailUserScreen extends StatefulWidget {

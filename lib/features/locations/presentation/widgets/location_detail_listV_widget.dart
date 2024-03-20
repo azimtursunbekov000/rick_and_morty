@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rick_and_morty/features/locations/data/models/locations_model.dart';
 import 'package:rick_and_morty/features/locations/presentation/logic/bloc/location_bloc.dart';
-import 'package:rick_and_morty/features/locations/presentation/screens/location_detail_screen.dart';
 import 'package:rick_and_morty/internal/dependensies/get_it.dart';
 import 'package:shimmer/shimmer.dart';
 

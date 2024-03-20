@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:rick_and_morty/features/settings/presentation/screens/theme_manager.dart';
+import 'package:rick_and_morty/internal/components/theme_manager.dart';
 import 'package:rick_and_morty/internal/helpers/text_helper.dart';
 
 class BlackThemeWidget extends StatefulWidget {
