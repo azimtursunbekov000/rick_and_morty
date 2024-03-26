@@ -5,7 +5,6 @@ import 'package:rick_and_morty/features/characters/presentation/logic/bloc/chara
 import 'package:rick_and_morty/features/characters/presentation/widget/grid_view_builder_widget.dart';
 import 'package:rick_and_morty/features/characters/presentation/widget/list_view_sp_widget.dart';
 import 'package:rick_and_morty/features/characters/presentation/widget/search_widget.dart';
-import 'package:rick_and_morty/internal/commons/common_flushbar.dart';
 import 'package:rick_and_morty/internal/dependensies/get_it.dart';
 import 'package:rick_and_morty/internal/helpers/catch_exception.dart';
 import 'package:rick_and_morty/internal/helpers/text_helper.dart';
@@ -42,8 +41,6 @@ class _CharactersScreenState extends State<CharactersScreen> {
               child: BlocConsumer<CharactersBloc, CharactersState>(
                 bloc: charactersBloc,
                 listener: (context, state) {
-                  // setLoaderVisible(state is CharactersLoadingState);
-
                   if (state is CharactersErrorState) {
                     final catchException =
                         CatchException.convertException(state.error);
@@ -54,8 +51,6 @@ class _CharactersScreenState extends State<CharactersScreen> {
                             catchException.message ?? "Что-то пошло не так"),
                       ),
                     );
-
-                    CommonFlushBar.show(context);
                   }
                 },
                 builder: (context, state) {
@@ -90,7 +85,7 @@ class _CharactersScreenState extends State<CharactersScreen> {
                         ),
                         SizedBox(height: 24.h),
                         Expanded(
-                          child: Container(
+                          child: SizedBox(
                             height: 640.h,
                             child: isGridView
                                 ? GridViewBuilderContent(state: state)
